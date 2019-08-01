@@ -39,7 +39,7 @@ def registration(request):
         'registration_form': RegisterCreateForm()
     }
 
-@login_required(login_url=reverse_lazy('login'))
+
 def homepage(request):
     return render(request, 'homepage.html')
 
@@ -61,6 +61,7 @@ def doctorview(request, id):
     context['doctor'] = Doctor.objects.filter(category_id__pk=id)
     return render(request, 'doctorview.html', context)
 
+@login_required(login_url=reverse_lazy('login'))
 def createreserve(request, id):
     context = {}
     form = ReserveForm(request.POST or None)
