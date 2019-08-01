@@ -40,10 +40,10 @@ def updateClinic(request):
     return render(request, 'clinic-form', context)
 
 @login_required(login_url=reverse_lazy('login'))
-def category():
+def category(request, id):
     context = {}
-    context['category'] = Category.objects.all()
-    return render(redirect, 'category.html', context)
+    context['category'] = Category.objects.filter(clinic_id__pk=id)
+    return render(request, 'category.html', context)
 
 @login_required(login_url=reverse_lazy('login'))
 def categoryEdit(request, id):

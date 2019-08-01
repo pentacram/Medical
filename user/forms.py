@@ -1,10 +1,10 @@
-from django import forms
-from .models import *
-
-class ProfileForm(forms.ModelForm):
-    email = forms.EmailField(widget=forms.EmailInput())
+from django.forms import ModelForm
+from .models import Register
+from django.contrib.auth.forms import UserCreationForm
 
 
-    class Meta:
-        model = Profile
-        fields = ['user', 'firstname', 'lastname', 'email', 'phone', 'images']
+class RegisterCreateForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = Register
+        fields = ('ad', 'soyad', 'yaş', 'Email', 'əlaqə_nömrəsi') + \
+            UserCreationForm.Meta.fields

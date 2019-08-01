@@ -9,7 +9,7 @@ from .models import *
 class ClinicForm(forms.ModelForm):
     class Meta:
         model = Clinic
-        fields = ['clinic_name', 'email', 'phone', 'info', 'photo']
+        fields = ['username', 'name', 'email', 'phone', 'info', 'photo']
 
 class CategoryForm(forms.ModelForm):
     class Meta:
@@ -20,4 +20,10 @@ class DoctorForm(forms.ModelForm):
     class Meta:
         model = Doctor
         fields = ['name', 'surname', 'age', 'email', 'phone', 'carrier', 'picture']
+
+class ReserveForm(forms.ModelForm):
+    class Meta:
+        model = Reserve
+        fields = ['doctor', 'name', 'surname','comment',
+                  'age', 'date', 'timeslot', 'contact_number']
 
