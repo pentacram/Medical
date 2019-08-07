@@ -41,7 +41,7 @@ def registration(request):
 
 
 def homepage(request):
-    return render(request, 'homepage.html')
+    return render(request, 'index.html')
 
 def medicalview(request):
     context = {}
