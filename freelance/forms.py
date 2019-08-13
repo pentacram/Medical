@@ -11,3 +11,9 @@ class Free_categoryForm(forms.ModelForm):
 class FreeDoctorForm(forms.ModelForm):
     class Meta:
         fields = ['name', 'catname', 'username', 'surname', 'email', 'phone', 'age', 'info', 'picture']
+
+class FreeReserveForm(forms.ModelForm):
+    class Meta:
+        model = FreeReserve
+        fields = ['doctor', 'name', 'surname','comment',
+                  'age', 'date', 'timeslot', 'contact_number']

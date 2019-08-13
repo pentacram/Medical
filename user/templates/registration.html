@@ -1,0 +1,54 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+​
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    .jumbotron{
+        margin-bottom: 1rem;
+        background-image: url(https://wallpapercave.com/wp/wp2469692.jpg) !important;
+        border-radius: .1rem;
+        padding:0rem 0rem;
+    }
+body{
+ background-image: url(https://wallpapercave.com/wp/wp2469692.jpg);
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: auto;
+}
+.container{
+    padding-right: 5px !important;
+    padding-left: 5px !important; 
+}
+</style>
+    </head>
+​
+<body>
+    <div class="jumbotron">
+        <h1>Qeydiyyat</h1>
+    </div>
+    <div class='container'>
+        <div class="row">
+            <div class="col-6">
+        <form action="" method="post">
+            {{registration_form | crispy}}
+            {% csrf_token %}
+            <div class="form-group">
+                <button class="form-control btn btn-primary">Qeydiyyatdan kech</button>
+            </div>
+        </form>
+        </div>
+        </div>
+    </div>
+</body>
+​
+</html>
+Collapse
+
+
+

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Medicio landing page template for Health niche</title>
+	
+    <!-- css -->
+    <link href="{% static 'medicio/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'medicio/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="{% static 'medicio/plugins/cubeportfolio/css/cubeportfolio.min.css' %}">
+	<link href="{% static 'medicio/css/nivo-lightbox.css' %}" rel="stylesheet" />
+	<link href="{% static 'medicio/css/nivo-lightbox-theme/default/default.css' %}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'medicio/css/owl.carousel.css' %}" rel="stylesheet" media="screen" />
+    <link href="{% static 'medicio/css/owl.theme.css' %}" rel="stylesheet" media="screen" />
+	<link href="{% static 'medicio/css/animate.css' %}" rel="stylesheet" />
+    <link href="{% static 'medicio/css/style.css' %}" rel="stylesheet">
+
+	<!-- boxed bg -->
+	<link id="bodybg" href="{% static 'medicio/bodybg/bg1.css' %}" rel="stylesheet" type="text/css" />
+	<!-- template skin -->
+	<link id="t-colors" href="{% static 'medicio/color/default.css' %}" rel="stylesheet">
+
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+	<div id="wrapper">
+		
+		<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+			<div class="top-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6 col-md-6">
+						<p class="bold text-left">Bazarertəsi - Şənbə, 09:00 - 18:00 </p>
+						</div>
+						<div class="col-sm-6 col-md-6">
+						<p class="bold text-right">Bizimlə Əlaqə <br> Mob Tel: +994702584343</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container navigation">
+			
+				<div class="navbar-header page-scroll">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+						<i class="fa fa-bars"></i>
+					</button>
+					<a class="navbar-brand" href="index.html">
+						<img src="{% static 'medicio/img/logo.png' %}" alt="" width="150" height="40" />
+					</a>
+				</div>
+	
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				  <ul class="nav navbar-nav">
+					<li class="active"><a href="index.html">Ana Səhifə</a></li>
+					<li><a href="#clinics">/Klinikalar</a></li>
+					
+					
+				  </ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container -->
+		</nav>
+	<section id="boxes" class="home-section padding-top-80">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-12 cs_title_row">
+							<h1>KLİNİKALAR</h1>
+						</div>
+						{% for med in medical %}
+						<div class="row">
+							<div class="col-lg-3 col-md-4 col-sm-6 cs_clinic_panel cs_height_mobile">
+								<div class="card h-100">
+									<div class="cs_panel_image cs_clinic_image">									
+										<a href="../clinic/az/11/diaqnoz-tibb-merkezi.html">
+											<img src="{{ med.photo.url }}" width="100%" height="" class="doc_photo"  title="Diaqnoz Tibb Mərkəzi" alt="Klinikalar Diaqnoz Tibb Mərkəzi" />
+										</a>
+									</div>
+									<div class="cs_rowpan_title cs_clinic_title">
+										<h2>{{med.name}}</h2><br />
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}	
+					</div>	
+		        </div>
+			</div>
+	</section>
+
+
+	<footer>
+	
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-4">
+						<div class="wow fadeInDown" data-wow-delay="0.1s">
+						<div class="widget">
+							<h5>Medicio haqqında</h5>
+							<p>
+							Lorem ipsum dolor sit amet, ne nam purto nihil impetus, an facilisi accommodare sea
+							</p>
+						</div>
+						</div>klinikalar
+						<div class="wow fadeInDown" data-wow-delay="0.1s">
+						<div class="widget">
+							<h5>Məlumat</h5>
+							<ul>
+								<li><a href="#">Ana Səhifə</a></li>
+								<li><a href="#">Laboratoriya</a></li>
+								<li><a href="#">Müalicə</a></li>
+								<li><a href="#">Şərtlər və qaydalar</a></li>
+							</ul>
+						</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="wow fadeInDown" data-wow-delay="0.1s">
+						<div class="widget">
+							<h5>Medicio Mərkəzi</h5>
+							<p>
+							Nam leo lorem, tincidunt id risus ut, ornare tincidunt naqunc sit amet.
+							</p>
+							<ul>
+								<li>
+									<span class="fa-stack fa-lg">
+										<i class="fa fa-circle fa-stack-2x"></i>
+										<i class="fa fa-calendar-o fa-stack-1x fa-inverse"></i>
+									</span> Bazarertəsi - Şənbə, 09:00-18:00
+								</li>
+								<li>
+									<span class="fa-stack fa-lg">
+										<i class="fa fa-circle fa-stack-2x"></i>
+										<i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+									</span> +994702584343
+								</li>
+								<li>
+									<span class="fa-stack fa-lg">
+										<i class="fa fa-circle fa-stack-2x"></i>
+										<i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+									</span> tofiq.cabbarov93@gmail.com
+								</li>
+	
+							</ul>
+						</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="wow fadeInDown" data-wow-delay="0.1s">
+						<div class="widget">
+							<h5>Bizim Ünvan</h5>
+							<p>Atatürk prospekti, Elektron Hökumətin Binası, 1ci mərtəbə</p>		
+							
+						</div>
+						</div>
+						<div class="wow fadeInDown" data-wow-delay="0.1s">
+						<div class="widget">
+							<h5>Follow us</h5>
+							<ul class="company-social">
+									<li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+									<li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+									<li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+									<li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
+									<li class="social-dribble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+							</ul>
+						</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<div class="sub-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-6 col-lg-6">
+						<div class="wow fadeInLeft" data-wow-delay="0.1s">
+						<div class="text-left">
+						<p>&copy;Müəllif hüquqları 2019 - Tech Academy Bütün hüquqlar qorunur.</p>
+						</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			</div>
+		</footer>
+
+		</div>
+
+
+
+
+		<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+
+	<!-- Core JavaScript Files -->
+    <script src="{% static 'medicio/js/jquery.min.js' %}"></script>	 
+    <script src="{% static 'medicio/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'medicio/js/jquery.easing.min.js' %}"></script>
+	<script src="{% static 'medicio/js/wow.min.js' %}"></script>
+	<script src="{% static 'medicio/js/jquery.scrollTo.js' %}"></script>
+	<script src="{% static 'medicio/js/jquery.appear.js' %}"></script>
+	<script src="{% static 'medicio/js/stellar.js' %}"></script>
+	<script src="{% static 'medicio/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"></script>
+	<script src="{% static 'medicio/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'medicio/js/nivo-lightbox.min.js' %}"></script>
+    <script src="{% static 'medicio/js/custom.js' %}"></script>
+
+
+</body>
+</html>

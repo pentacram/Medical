@@ -7,11 +7,13 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from clinic.models import *
 from clinic.forms import ReserveForm
+from freelance.models import *
+from freelance.forms import FreeReserveForm
 
 
 def login_view(request):
     if request.user.is_authenticated:
-        return redirect('homepage')
+        return redirect('home')
     if request.method == "POST":
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
@@ -20,8 +22,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('homepage')
-
+            return redirect('home')
     return render(request, 'login.html')
 
 def registration(request):
@@ -38,6 +39,7 @@ def registration(request):
     context = {
         'registration_form': RegisterCreateForm()
     }
+    return render(request, 'registration.html', context)
 
 
 def homepage(request):
@@ -46,7 +48,7 @@ def homepage(request):
 def medicalview(request):
     context = {}
     context['medical'] = Clinic.objects.all()
-    return render(request, 'medicallist.html', context)
+    return render(request, 'klinikalar.html', context)
 
 def categoryview(request, id):
     context = {}
@@ -78,3 +80,30 @@ def createreserve(request, id):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+def freecategory(request):
+    context = {}
+    context['freecat'] = Free_category.objects.all()
+    return render(request, 'index.html', context)
+
+def freedoctor(request, id):
+    context = {}
+    context['freecat'] = Free_category.objects.all()
+    context['freedoctor'] = FreeDoctor.objects.filter(catname__pk=id)
+    return render(request, 'index.html', context)
+
+
+#@login_required(login_url=reverse_lazy('login'))
+def freereserve(request, id):
+    context = {}
+    form = FreeReserveForm(request.POST or None)
+    date = request.POST.get('data')
+    timeslot = request.POST.get('timeslot')
+    if FreeReserve.objects.filter(date=date, timeslot=timeslot):
+        return redirect('freereserve')
+    elif form.is_valid():
+        form.save()
+        return redirect('homepage')
+    context['freedoctor'] = FreeReserve.objects.filter(doctor__pk=id)
+    context['form'] = form
+    return render(request, 'elovset.html', context)

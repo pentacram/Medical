@@ -9,3 +9,8 @@ class FreeCategoryAdmin(admin.ModelAdmin):
 @admin.register(FreeDoctor)
 class FreeDoctorAdmin(admin.ModelAdmin):
     list_display = ('id', 'username', 'catname', 'name', 'surname', 'email', 'phone', 'age', 'info', 'picture')
+
+@admin.register(FreeReserve)
+class FreeReserveAdmin(admin.ModelAdmin):
+    list_display = ('id', 'doctor', 'name', 'surname', 'age', 'date', 'timeslot', 'comment', 'contact_number')
+

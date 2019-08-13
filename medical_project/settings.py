@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'clinic',
     'freelance',
     'user',
-    'phone_field'
-    
+    'phone_field',
+    'crispy_forms',    
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

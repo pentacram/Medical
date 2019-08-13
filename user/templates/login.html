@@ -1,0 +1,75 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+
+<style>
+    .jumbotron{
+        margin-bottom: 1rem;
+        background-image: url(https://wallpapercave.com/wp/wp2469692.jpg) !important;
+        border-radius: .1rem;
+        padding:0rem 0rem;
+    }
+body{
+ background-image: url(https://wallpapercave.com/wp/wp2469692.jpg);
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: auto;
+
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+.container{
+    padding-right: 5px !important;
+    padding-left: 5px !important; 
+}
+
+</style>
+
+    </head>
+
+<body>
+    <div class="jumbotron">
+        <h1>Daxil ol</h1>
+    </div>
+    <div class="container">
+        <form action="" method="post">
+            <div class="col-md-4">
+            <div class="form-group">
+                <input class="form-control" type="text" name="username" placeholder="username"
+                    value="{{request.session.username}}">
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="password">
+            </div>
+            </div>
+            {% csrf_token %}
+<div class="col-md-4">
+            <div class="form-group">
+                <button class="form-control btn btn-primary" name="loin">Daxil ol</button>
+            </div>
+            </form>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
+        integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

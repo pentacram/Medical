@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Medicio</title>
+
+    <!-- css -->
+    <link href="{% static 'medicio/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'medicio/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'medicio/plugins/cubeportfolio/css/cubeportfolio.min.css' %}">
+    <link href="{% static 'medicio/css/nivo-lightbox.css' %}" rel="stylesheet' %}" />
+    <link href="{% static 'medicio/css/nivo-lightbox-theme/default/default.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'medicio/css/owl.carousel.css' %}" rel="stylesheet" media="screen" />
+    <link href="{% static 'medicio/css/owl.theme.css' %}" rel="stylesheet" media="screen" />
+    <link href="{% static 'medicio/css/animate.css' %}" rel="stylesheet" />
+    <link href="{% static 'medicio/css/style.css' %}" rel="stylesheet">
+
+
+    <!-- boxed bg -->
+    <link id="bodybg" href="{% static 'medicio/bodybg/bg1.css' %}" rel="stylesheet" type="text/css" />
+    <!-- template skin -->
+    <link id="t-colors" href="{% static 'medicio/color/default.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
+    <link rel="stylesheet" media="print"
+        href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css">
+
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="top-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <p class="bold text-left">Bazarertəsi - Şənbə, 09:00 - 18:00 </p>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <p class="bold text-right">Bizimlə Əlaqə <br> Mob Tel: +994702584343</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container navigation">
+
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="{% static 'medicio/img/logo.png' %}" alt="" width="150" height="40" />
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#intro">Ana Səhifə</a></li>
+                        <li><a href="#service">Servis</a></li>
+                        <li><a href="#doctor">Həkimlər</a></li>
+                        <li><a href="#facilities">Haqqımızda</a></li>
+                        <li><a href="#pricing">Qiymətləndirmə</a></li>
+                        <li><a href="./klinikalar.html">Klinikalar</a></li>
+                        <li><a href="./freelancedoctor.html">Sərbəst Həkimlər</a></li>
+                        <li><a href="./signup.html">Qeydiyyat</a></li>
+                        <li><a href="../user/templates/login.html">Login</a></li>
+
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        <div class="container">
+            <div class="row cs_no_pad">
+                <div class="col-md-8 ">
+
+                    <div class="row">
+
+                        <div class="col-md-12 cs_docpan_title">
+                            <h1>Dr. Manaf Abbasov</h1>
+                        </div>
+                        <div class="col-md-12 cs_docpan_desc">
+
+                            Doktor Manaf Abbasov kəskin və xroniki xasiyyətli pulmonoloji patologiyaların hər tərəfli
+                            terapiyasi &uuml;zrə ixtisaslaşır. M&uuml;təxəssis pnevmaniya, bronxial astma, ağ ciyərlərin
+                            emfizeması, bronxit və s. kimi xəstəlikləri m&uuml;alicə edir.&nbsp;
+                        </div>
+
+
+
+
+                        <!-- FOR MOBILE -->
+                        <div class="col-md-12 d-block d-lg-none">
+
+
+
+                            <div class="cs_doc_quick_profile">
+
+                                <h3>Həkim profili</h3>
+
+
+                                <table class="table">
+                                    <tr>
+                                        <td width="20%">Həkim:</td>
+                                        <td class="text-right">Dr. Manaf Abbasov</td>
+                                    </tr>
+
+
+                                    <!--<tr>
+                                                <td>Ünvan:</td>
+                                                <td class="text-right"> </td>
+                                            </tr>-->
+                                    <tr>
+                                        <td>Telefon:</td>
+                                        <td class="text-right">(055) 500 96 00</td>
+                                    </tr>
+                                    <!--<tr>
+                                                <td>Daxili:</td>
+                                                <td class="text-right">8362</td>
+                                            </tr>-->
+                                    <tr>
+                                        <td>E-mail:</td>
+                                        <td class="text-right">info@doctortap.az</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sahə:</td>
+                                        <td class="text-right">
+                                            Allerqoloq, Pulmanoloq </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Təcrübə:</td>
+                                        <td class="text-right">
+                                            22 il iş təcrübəsi </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rəylərin sayı:</td>
+                                        <td class="text-right">
+                                            13 </td>
+                                    </tr>
+
+
+
+                                </table>
+
+
+
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-10 text-center">
+
+                                        <p>
+                                            <button type="button" class="btn btn-danger btn-block cs_reception_button"
+                                                data-toggle="modal" data-target="#enroll" rel="">Qəbula
+                                                yazılmaq</button>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 cs_about_panel">
+                            <div class="row">
+                                <div class="col-6">
+                                    Həkim haqqında </div>
+                                <div class="col-6 text-right">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 cs_about_panel_text">
+                            <p>
+                                <h2><strong>İş təcr&uuml;bəsi:</strong></h2>
+
+                                <ul>
+                                    <li>1990&mdash;1991 illər &mdash; XI İnfeksion xəstəliklər ş&ouml;bəsi I saylı
+                                        ŞKX&mdash; Ki&ccedil;ik tibb iş&ccedil;isi;</li>
+                                    <li>1994&mdash;1996 illər &mdash; Mərkəzi Hərbi Hospital, III cərrahiyyə
+                                        ş&ouml;bəsi&mdash; Tibb qardaşı;</li>
+                                    <li>1998 il &mdash; Elmi Tədqiqat Ftiziatriya və Pulmonologiya İnstitutu, II
+                                        Ftiziatriya ş&ouml;bəsi &mdash; Həkim ordinator;</li>
+                                    <li>1998&mdash;2000 illər &mdash; M&uuml;dafiə Nazirliyi Əlahiddə Ftiziatriya
+                                        Hospitalı, II Ftiziatriya ş&ouml;bəsi &mdash; Həkim-Ordinator;</li>
+                                    <li>2000&mdash;2012 illər &mdash; Mərkəzi Klinik Xəstəxana &mdash; Həkim-Pulmonolog;
+                                    </li>
+                                    <li>2012 il &mdash; Modern Hospital&mdash; Pulmonolog-Allerqoloq;</li>
+                                    <li>2017 ildən &mdash; hazırki d&ouml;vrə gədər &mdash; Mərkəzi Klinika &mdash;
+                                        Pulmonoloq-Allerqoloq.</li>
+                                </ul>
+                            </p>
+                            <hr />
+
+                            <div class="col-md-12">
+                                <h2>Təhsil</h2>
+                                <ul>
+                                    <li>Azərbaycan D&ouml;vlət Tibb Universiteti (1991&mdash;1997 illər);</li>
+                                    <li>Elmi Tədqiqat Ftiziatriya və Pulmonologiya İnstitutu, internatura
+                                        (1997&mdash;1998 illər).</li>
+                                </ul>
+                            </div>
+                            <hr />
+                            <div class="col-md-12">
+                                <h2>Kurslar</h2>
+                                <ul>
+                                    <li>Ankara Atat&uuml;rk G&ouml;g&uuml;s Hastalıkları və G&ouml;g&uuml;s Cerrahisi
+                                        Egitim-Araştırma Hastanesi, Pulmonoloq (T&uuml;rkiyə, 2000 il);</li>
+                                    <li>Ankara Atat&uuml;rk G&ouml;g&uuml;s Hastalıkları və G&ouml;g&uuml;s Cerrahisi
+                                        Egitim-Araştırma Hastanesi, Astma və Allergologiya (T&uuml;rkiyə, 2002 il).</li>
+                                </ul>
+                            </div>
+                            <hr />
+                            <div class="col-md-12">
+                                <h2>İcra edilən prosedurlar</h2>
+                                <ul>
+                                    <li>diaqnostika, m&uuml;alicə və profilaktika;</li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <!-- FOR WEB -->
+                <div class="col-md-4 d-none d-lg-block">
+
+
+
+                    <div class="cs_doc_quick_profile">
+
+                        <h3>Həkim profili</h3>
+
+
+                        <table class="table">
+                            <tr>
+                                <td width="20%">Həkim:</td>
+                                <td class="text-right">Dr. Manaf Abbasov</td>
+                            </tr>
+                            <tr>
+                                <td>Telefon:</td>
+                                <td class="text-right">(055) 500 96 00</td>
+                            </tr>
+                            <tr>
+                                <td>E-mail:</td>
+                                <td class="text-right">info@doctortap.az</td>
+                            </tr>
+                            <tr>
+                                <td>Sahə:</td>
+                                <td class="text-right">
+                                    Allerqoloq, Pulmanoloq </td>
+                            </tr>
+                            <tr>
+                                <td>Təcrübə:</td>
+                                <td class="text-right">
+                                    22 il iş təcrübəsi </td>
+                            </tr>
+                        </table>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10 text-center">
+                                <p>
+                                    <button type="button" class="btn btn-danger btn-block cs_reception_button"
+                                        data-toggle="modal" data-target="#enroll" rel="">Qəbula yazılmaq</button>
+                                </p>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="enroll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form method="POST">
+
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <input type="text" name="reception_client_fullaname" class="form-control"
+                                        placeholder="Adınız və soyadınız" required>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <input type="text" name="reception_client_phone" class="form-control mobile"
+                                        placeholder="Əlaqə nömrəsi" required>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <textarea name="reception_client_comment" class="form-control" required
+                                        placeholder="Şərh"></textarea>
+                                </div>
+
+
+
+
+
+                                <div class="col-md-12 form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                            <label class="col-xs-3 control-label">Qəbul tarixi</label>
+                                            <div class="col-xs-5 date">
+                                                <div class="input-group input-append date">
+                                                    <input type="text" class="form-control" autocomplete="off"
+                                                        id="datePicker" name="reception_client_date_receipt" required />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+
+                                            <div class="col-md-12 form-group">
+                                                <!--<div class="appointment_date_title">
+                                                          Arzu olunan vaxt										</div>-->
+                                                <label class="col-xs-3 control-label">Arzu olunan vaxt</label>
+                                                <div class="appointment_date_cont">
+                                                    <div class="appointment_time_li">
+
+
+                                                        <select class="form-control"
+                                                            name="reception_client_time_receipt">
+
+                                                            <optgroup label="08:00 - 08:45">
+                                                                <option value="08:00">08:00</option>
+                                                                <option value="08:15">08:15</option>
+                                                                <option value="08:30">08:30</option>
+                                                                <option value="08:45">08:45</option>
+                                                            </optgroup>
+
+                                                            <optgroup label="09:00 - 09:45">
+                                                                <option value="09:00">09:00</option>
+                                                                <option value="09:15">09:15</option>
+                                                                <option value="09:30">09:30</option>
+                                                                <option value="09:45">09:45</option>
+                                                            </optgroup>
+
+                                                            <optgroup label="10:00 - 10:45">
+                                                                <option value="10:00">10:00</option>
+                                                                <option value="10:15">10:15</option>
+                                                                <option value="10:30">10:30</option>
+                                                                <option value="10:45">10:45</option>
+                                                            </optgroup>
+
+                                                            <optgroup label="11:00 - 11:45">
+                                                                <option value="11:00">11:00</option>
+                                                                <option value="11:15">11:15</option>
+                                                                <option value="11:30">11:30</option>
+                                                                <option value="11:45">11:45</option>
+                                                            </optgroup>
+
+                                                            <optgroup label="12:00 - 12:45">
+                                                                <option value="12:00">12:00</option>
+                                                                <option value="12:15">12:15</option>
+                                                                <option value="12:30">12:30</option>
+                                                                <option value="12:45">12:45</option>
+                                                            </optgroup>
+
+                                                            <optgroup label="13:00 - 13:45">
+                                                                <option value="13:00">13:00</option>
+                                                                <option value="13:15">13:15</option>
+                                                                <option value="13:30">13:30</option>
+                                                                <option value="13:45">13:45</option>
+                                                            </optgroup>
+
+                                                            <optgroup label="14:00 - 14:45">
+                                                                <option value="14:00">14:00</option>
+                                                                <option value="14:15">14:15</option>
+                                                                <option value="14:30">14:30</option>
+                                                                <option value="14:45">14:45</option>
+                                                            </optgroup>
+
+                                                            <optgroup label="15:00 - 15:45">
+                                                                <option value="15:00">15:00</option>
+                                                                <option value="15:15">15:15</option>
+                                                                <option value="15:30">15:30</option>
+                                                                <option value="15:45">15:45</option>
+                                                            </optgroup>
+
+                                                            <optgroup label="16:00 - 16:45">
+                                                                <option value="16:00">16:00</option>
+                                                                <option value="16:15">16:15</option>
+                                                                <option value="16:30">16:30</option>
+                                                                <option value="16:45">16:45</option>
+                                                            </optgroup>
+
+                                                            <optgroup label="17:00 - 17:45">
+                                                                <option value="17:00">17:00</option>
+                                                                <option value="17:15">17:15</option>
+                                                                <option value="17:30">17:30</option>
+                                                                <option value="17:45">17:45</option>
+                                                            </optgroup>
+
+                                                        </select>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+
+
+
+
+                                <div class="col-md-12 form-group">
+
+                                    <input type="hidden" name="reception_docwork_clinic_id"
+                                        id="reception_docwork_clinic_id">
+
+                                    <button type="submit" name="reception_button" class="btn btn-danger">Qəbula
+                                        yazıl</button>
+                                </div>
+
+
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="wow fadeInDown" data-wow-delay="0.1s">
+                            <div class="widget">
+                                <h5>Medicio haqqında</h5>
+                                <p>
+                                    Lorem ipsum dolor sit amet, ne nam purto nihil impetus, an facilisi accommodare sea
+                                </p>
+                            </div>
+                        </div>
+                        <div class="wow fadeInDown" data-wow-delay="0.1s">
+                            <div class="widget">
+                                <h5>Məlumat</h5>
+                                <ul>
+                                    <li><a href="#">Ana Səhifə</a></li>
+                                    <li><a href="#">Laboratoriya</a></li>
+                                    <li><a href="#">Müalicə</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="wow fadeInDown" data-wow-delay="0.1s">
+                            <div class="widget">
+                                <h5>Medicio Mərkəzi</h5>
+                                <p>
+                                    Nam leo lorem, tincidunt id risus ut, ornare tincidunt naqunc sit amet.
+                                </p>
+                                <ul>
+                                    <li>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-calendar-o fa-stack-1x fa-inverse"></i>
+                                        </span> Bazarertəsi - Şənbə, 09:00-18:00
+                                    </li>
+                                    <li>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                                        </span> +994702584343
+                                    </li>
+                                    <li>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                        </span> hello@medicio.com
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="wow fadeInDown" data-wow-delay="0.1s">
+                            <div class="widget">
+                                <h5>Bizim Ünvan</h5>
+                                <p>Atatürk prospekti, Elektron Hökumətin Binası, 1ci mərtəbə</p>
+
+                            </div>
+                        </div>
+                        <div class="wow fadeInDown" data-wow-delay="0.1s">
+                            <div class="widget">
+                                <h5>Follow us</h5>
+                                <ul class="company-social">
+                                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
+                                    <li class="social-dribble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="wow fadeInLeft" data-wow-delay="0.1s">
+                                <div class="text-left">
+                                    <p>&copy;Müəllif hüquqları 2019 - Medicio. Bütün hüquqlar qorunur.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <div class="wow fadeInRight" data-wow-delay="0.1s">
+                                <div class="text-right">
+                                    <p><a href="http://bootstraptaste.com/">Bootstrap Temalar</a> BootstrapTaste
+                                        tərəfindən</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+
+
+    <!-- Core JavaScript Files -->
+    <script src="{% static 'medicio/js/jquery.min.js' %}"></script>
+    <script src="{% static 'medicio/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'medicio/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'medicio/js/wow.min.js' %}"></script>
+    <script src="{% static 'medicio/js/jquery.scrollTo.js' %}"></script>
+    <script src="{% static 'medicio/js/jquery.appear.js' %}"></script>
+    <script src="{% static 'medicio/js/stellar.js' %}"></script>
+    <script src="{% static 'medicio/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"></script>
+    <script src="{% static 'medicio/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'medicio/js/nivo-lightbox.min.js' %}"></script>
+    <script src="{% static 'medicio/js/custom.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="http://momentjs.com/downloads/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale-all.js"></script>
+    <script>
+
+        $(function () {
+
+
+
+            $('#secimler .fc-event').each(function () {
+
+
+                $(this).data('event', {
+                    title: $(this).text()
+                });
+
+                $(this).draggable({
+                    revert: true,
+                    revertDuration: 0
+                });
+
+            });
+
+            $('#calendar').fullCalendar({
+                locale: 'tr',
+                weekends: true,
+                defaultView: 'agendaWeek',
+                selectable: true,
+                editable: true,
+                eventStartEditable: true,
+                eventDurationEditable: true,
+                allDaySlot: true,
+                allDayText: 'Bütün Gün',
+                scrollTime: '12:00',
+                minTime: '00:00',
+                maxTime: '23:00',
+                slotDuration: '00:15',
+                droppable: true,
+                slotLabelFormat: 'HH:mm:ss',
+                slotLabelInterval: '01:00',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay agendaWeek,agendaDay'
+                },
+                footer: {
+                    left: 'title',
+                    center: '',
+                    right: 'prevYear,nextYear'
+                },
+                firstDay: 1,
+                columnFormat: 'dddd',
+                timeFormat: 'HH mm ss',
+                titleFormat: 'D MMMM YYYY',
+                titleRangeSeparator: ' / ',
+                buttonText: {
+                    agendaWeek: 'Saatli Hefte',
+                    agendaDay: 'Saatli Gün'
+                },
+                customButtons: {
+                    denemeBtn: {
+                        text: 'Secim Butonu',
+                        click: function () {
+                            alert('Secim Butonuna Basıldı!');
+                        }
+                    }
+                },
+                isRTL: false,
+                eventClick: function (event) {
+
+                    alert(event.id + '');
+
+                },
+                drop: function (date) {
+                    alert(date.format());
+                },
+                eventDrop: function (event) {
+                    alert('secim yeri deyisdi: ' + event.title + ' ' + event.start.format());
+                },
+                dayClick: function (date) {
+                    alert(date.format() + ' tarixini secdiniz');
+                },
+                eventRender: function (event) {
+
+
+                    if (event.title == 'sinaq ucun') return false;
+                    return true;
+
+                },
+                eventAfterAllRender: function () {
+
+                    alert('teqvim yüklendi');
+
+                },
+                events: [
+                    {
+                        id: 2,
+                        title: 'sinaq ucun',
+                        start: new Date(2019, 2, 24, 12, 30),
+                        end: new Date(2019, 2, 24, 16, 30)
+                    },
+                    {
+                        id: 1,
+                        title: 'sinaq ucun 2',
+                        start: new Date(2019, 2, 23),
+                        allDay: true,
+                        url: 'http://www.google.com/'
+                    }
+                ],
+                aspectRatio: 4,
+                views: {
+                    month: {
+                        titleFormat: 'MMMM'
+                    },
+                    basicWeek: {
+                        titleFormat: 'MMMM YYYY',
+                        weekends: false
+                    }
+                }
+            });
+
+        });
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
