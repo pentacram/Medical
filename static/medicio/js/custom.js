@@ -224,15 +224,16 @@ $(window).load(function() {
 $(document).ready(function(){
 	$('.doctor-type').click(function(){
 	let doctor_type = $(this).data('type');
-	let doctors_container = $('.doctorss-all');
+	let doctors_container = $('.ajax-data');
 	let requested_url = $('#doctors-ajax-url').val();
 	$.ajax({
 		url:requested_url,
 		type:'GET',
 		data:{'doctor_type':doctor_type},
 		success:function(data){
+			$("#grid-container").css("height", "auto");
 			console.log(data)
-			doctors_container.append(data);
+			doctors_container.html(data);
 		},
 		error:function(err){
 			console.log(err)

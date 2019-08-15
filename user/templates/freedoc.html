@@ -72,14 +72,16 @@
             </div>
             <!-- /.container -->
         </nav>
+        
         <div class="container">
+        {% for doctor in freedoctor %}
             <div class="row cs_no_pad">
                 <div class="col-md-8 ">
 
                     <div class="row">
 
                         <div class="col-md-12 cs_docpan_title">
-                            <h1>Dr. Manaf Abbasov</h1>
+                            <h1>Dr.</h1>
                         </div>
                         <div class="col-md-12 cs_docpan_desc">
 
@@ -87,10 +89,6 @@
                             terapiyasi &uuml;zrə ixtisaslaşır. M&uuml;təxəssis pnevmaniya, bronxial astma, ağ ciyərlərin
                             emfizeması, bronxit və s. kimi xəstəlikləri m&uuml;alicə edir.&nbsp;
                         </div>
-
-
-
-
                         <!-- FOR MOBILE -->
                         <div class="col-md-12 d-block d-lg-none">
                             <div class="cs_doc_quick_profile">
@@ -98,48 +96,21 @@
                                 <table class="table">
                                     <tr>
                                         <td width="20%">Həkim:</td>
-                                        <td class="text-right">Dr. Manaf Abbasov</td>
+                                        <td class="text-right">Dr. {{ doctor.name }}</td>
                                     </tr>
-
-
-                                    <!--<tr>
-                                                <td>Ünvan:</td>
-                                                <td class="text-right"> </td>
-                                            </tr>-->
                                     <tr>
                                         <td>Telefon:</td>
-                                        <td class="text-right">(055) 500 96 00</td>
+                                        <td class="text-right">{{ doctor.phone }}</td>
                                     </tr>
-                                    <!--<tr>
-                                                <td>Daxili:</td>
-                                                <td class="text-right">8362</td>
-                                            </tr>-->
                                     <tr>
                                         <td>E-mail:</td>
-                                        <td class="text-right">info@doctortap.az</td>
+                                        <td class="text-right">{{ doctor.email }}</td>
                                     </tr>
                                     <tr>
                                         <td>Sahə:</td>
-                                        <td class="text-right">
-                                            Allerqoloq, Pulmanoloq </td>
+                                        <td class="text-right">{{ doctor.catname.name }} </td>
                                     </tr>
-                                    <tr>
-                                        <td>Təcrübə:</td>
-                                        <td class="text-right">
-                                            22 il iş təcrübəsi </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rəylərin sayı:</td>
-                                        <td class="text-right">
-                                            13 </td>
-                                    </tr>
-
-
-
                                 </table>
-
-
-
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-10 text-center">
@@ -218,48 +189,7 @@
                     </div>
 
                 </div>
-
-                <!-- FOR WEB -->
-                <div class="col-md-4 d-none d-lg-block">
-                    <div class="cs_doc_quick_profile">
-                        <h3>Həkim profili</h3>
-                        <table class="table">
-                            <tr>
-                                <td width="20%">Həkim:</td>
-                                <td class="text-right">Dr. Manaf Abbasov</td>
-                            </tr>
-                            <tr>
-                                <td>Telefon:</td>
-                                <td class="text-right">(055) 500 96 00</td>
-                            </tr>
-                            <tr>
-                                <td>E-mail:</td>
-                                <td class="text-right">info@doctortap.az</td>
-                            </tr>
-                            <tr>
-                                <td>Sahə:</td>
-                                <td class="text-right">
-                                    Allerqoloq, Pulmanoloq </td>
-                            </tr>
-                            <tr>
-                                <td>Təcrübə:</td>
-                                <td class="text-right">
-                                    22 il iş təcrübəsi </td>
-                            </tr>
-                        </table>
-                        <div class="row">
-                            <div class="col-md-1"></div>
-                            <div class="col-md-10 text-center">
-                                <p>
-                                    <button type="button" class="btn btn-danger btn-block cs_reception_button"
-                                        data-toggle="modal" data-target="#enroll" rel="">Qəbula yazılmaq</button>
-                                </p>
-                            </div>
-                            <div class="col-md-1"></div>
-                        </div>
-
-                    </div>
-                </div>
+            {% endfor %}
             </div>
         </div>
         <div class="modal fade" id="enroll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
