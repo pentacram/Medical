@@ -9496,3 +9496,10 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+#section_two {
+  float: right;
+  width: 100%;
+  padding: 5px;
+  position: relative;
+} 

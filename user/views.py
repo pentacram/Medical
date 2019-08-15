@@ -44,10 +44,17 @@ def registration(request):
 
 
 
-def medicalview(request):
+def medicalsview(request):
     context = {}
-    context['medical'] = Clinic.objects.all()
+    context['medicals'] = Clinic.objects.all()
     return render(request, 'klinikalar.html', context)
+
+def medicalview(request, id):
+    context = {}
+    context['medical'] = Clinic.objects.filter(id=id)
+    return render(request, 'clinics.html', context)
+
+
 
 def categoryview(request, id):
     context = {}
@@ -55,7 +62,7 @@ def categoryview(request, id):
         context['category'] = Category.objects.filter(clinic_id__pk=id)
     except Category.DoesNotExist:
         raise Http404
-    return render(request, 'clinics.html', context)
+    return render(request, 'departments.html', context)
 
 def doctorview(request, id):
     context = {}
@@ -111,9 +118,10 @@ def freereserve(request, id):
 class FilterDoctorsAjaxView(View):
     ajax_template = 'ajax.html'
 
-    def get(self,request):
+    def get(self,request,*args,**kwargs):
         if request.is_ajax():
             doctor_type = request.GET.get('doctor_type',False)
             if doctor_type:
                 doctors_list = FreeDoctor.objects.filter(catname__name=doctor_type)
+                print(doctors_list)
                 return render(request,self.ajax_template,{'doctors':doctors_list})

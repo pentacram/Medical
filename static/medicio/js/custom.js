@@ -221,9 +221,23 @@ $(window).load(function() {
 });
 
 	
-$('.doctor-type').click(function(){
-	console.log($(this).data('type'))
+$(document).ready(function(){
+	$('.doctor-type').click(function(){
+	let doctor_type = $(this).data('type');
+	let doctors_container = $('.doctorss-all');
+	let requested_url = $('#doctors-ajax-url').val();
 	$.ajax({
-		url:'doctor-ajax'
+		url:requested_url,
+		type:'GET',
+		data:{'doctor_type':doctor_type},
+		success:function(data){
+			console.log(data)
+			doctors_container.append(data);
+		},
+		error:function(err){
+			console.log(err)
+		}
+
+	})	
 	})
-})
+});

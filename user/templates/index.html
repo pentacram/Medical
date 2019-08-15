@@ -33,7 +33,7 @@
 				<li class="active"><a href="#intro">Ana Səhifə</a></li>
 				<li><a href="#doctor">Sərbəst Həkimlər</a></li>
 				<li><a href="#facilities">Haqqımızda</a></li>
-				<li><a href="{% url 'clinic' %}">Klinikalar</a></li>
+				<li><a href="{% url 'clinics' %}">Klinikalar</a></li>
 				<li><a href="{% url 'register' %}">Qeydiyyat</a></li>
 				<li><a href="{% url 'logout' %}">Login</a></li>
 				
@@ -299,8 +299,9 @@
                 <div data-filter="*"  class=" cbp-filter-item-active cbp-filter-item">{{ free.name }}</div>
             </a>
 			{% endfor %}
+			<input id='doctors-ajax-url' type="hidden" value="{% url 'doctor-ajax' %}">
             <div id="grid-container" class="cbp-l-grid-team">
-                <ul>
+                <ul class='doctorss-all'>
 
                 </ul>
             </div>
@@ -513,6 +514,6 @@
 		</div>
 		</div>
 	</footer>
-
+	
 </div>
 {% endblock %}

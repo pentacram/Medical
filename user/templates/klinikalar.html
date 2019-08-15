@@ -75,12 +75,12 @@
 						<div class="col-md-12 cs_title_row">
 							<h1>KLİNİKALAR</h1>
 						</div>
-						{% for med in medical %}
+						{% for med in medicals %}
 						<div class="row">
 							<div class="col-lg-3 col-md-4 col-sm-6 cs_clinic_panel cs_height_mobile">
 								<div class="card h-100">
 									<div class="cs_panel_image cs_clinic_image">									
-										<a href="{% url 'category' med.id %}">
+										<a href="{% url 'clinic' med.id %}">
 											<img src="{{ med.photo.url }}" width="100%" height="" class="doc_photo"  title="Diaqnoz Tibb Mərkəzi" alt="Klinikalar Diaqnoz Tibb Mərkəzi" />
 										</a>
 									</div>
