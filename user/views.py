@@ -9,7 +9,7 @@ from clinic.models import *
 from clinic.forms import ReserveForm
 from freelance.models import *
 from freelance.forms import FreeReserveForm
-
+from django.views.generic import View
 
 def login_view(request):
     if request.user.is_authenticated:
@@ -42,8 +42,7 @@ def registration(request):
     return render(request, 'registration.html', context)
 
 
-def homepage(request):
-    return render(request, 'index.html')
+
 
 def medicalview(request):
     context = {}
@@ -56,7 +55,7 @@ def categoryview(request, id):
         context['category'] = Category.objects.filter(clinic_id__pk=id)
     except Category.DoesNotExist:
         raise Http404
-    return render(request, 'categorylist.html', context)
+    return render(request, 'clinics.html', context)
 
 def doctorview(request, id):
     context = {}
@@ -90,7 +89,7 @@ def freedoctor(request, id):
     context = {}
     context['freecat'] = Free_category.objects.all()
     context['freedoctor'] = FreeDoctor.objects.filter(catname__pk=id)
-    return render(request, 'index.html', context)
+    return render(request, 'freedoc.html', context)
 
 
 #@login_required(login_url=reverse_lazy('login'))
@@ -106,4 +105,15 @@ def freereserve(request, id):
         return redirect('homepage')
     context['freedoctor'] = FreeReserve.objects.filter(doctor__pk=id)
     context['form'] = form
-    return render(request, 'elovset.html', context)
+    return render(request, 'freedoc.html', context)
+
+
+class FilterDoctorsAjaxView(View):
+    ajax_template = 'ajax.html'
+
+    def get(self,request):
+        if request.is_ajax():
+            doctor_type = request.GET.get('doctor_type',False)
+            if doctor_type:
+                doctors_list = FreeDoctor.objects.filter(catname__name=doctor_type)
+                return render(request,self.ajax_template,{'doctors':doctors_list})

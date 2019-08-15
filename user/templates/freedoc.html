@@ -64,15 +64,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#intro">Ana Səhifə</a></li>
-                        <li><a href="#service">Servis</a></li>
-                        <li><a href="#doctor">Həkimlər</a></li>
-                        <li><a href="#facilities">Haqqımızda</a></li>
-                        <li><a href="#pricing">Qiymətləndirmə</a></li>
-                        <li><a href="./klinikalar.html">Klinikalar</a></li>
-                        <li><a href="./freelancedoctor.html">Sərbəst Həkimlər</a></li>
-                        <li><a href="./signup.html">Qeydiyyat</a></li>
-                        <li><a href="../user/templates/login.html">Login</a></li>
+                        <li class="active"><a href="{% url 'homepage' %}">Ana Səhifə</a></li>
 
                     </ul>
                 </div>
@@ -101,14 +93,8 @@
 
                         <!-- FOR MOBILE -->
                         <div class="col-md-12 d-block d-lg-none">
-
-
-
                             <div class="cs_doc_quick_profile">
-
                                 <h3>Həkim profili</h3>
-
-
                                 <table class="table">
                                     <tr>
                                         <td width="20%">Həkim:</td>
@@ -235,14 +221,8 @@
 
                 <!-- FOR WEB -->
                 <div class="col-md-4 d-none d-lg-block">
-
-
-
                     <div class="cs_doc_quick_profile">
-
                         <h3>Həkim profili</h3>
-
-
                         <table class="table">
                             <tr>
                                 <td width="20%">Həkim:</td>
@@ -294,7 +274,6 @@
                     <div class="modal-body">
 
                         <form method="POST">
-
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     <input type="text" name="reception_client_fullaname" class="form-control"
@@ -308,16 +287,9 @@
                                     <textarea name="reception_client_comment" class="form-control" required
                                         placeholder="Şərh"></textarea>
                                 </div>
-
-
-
-
-
                                 <div class="col-md-12 form-group">
-
                                     <div class="row">
                                         <div class="col-md-6">
-
                                             <label class="col-xs-3 control-label">Qəbul tarixi</label>
                                             <div class="col-xs-5 date">
                                                 <div class="input-group input-append date">
@@ -420,30 +392,15 @@
 
                                         </div>
                                     </div>
-
-
                                 </div>
-
-
-
-
-
-
                                 <div class="col-md-12 form-group">
-
                                     <input type="hidden" name="reception_docwork_clinic_id"
                                         id="reception_docwork_clinic_id">
-
                                     <button type="submit" name="reception_button" class="btn btn-danger">Qəbula
                                         yazıl</button>
                                 </div>
-
-
-
                             </div>
-
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -509,18 +466,6 @@
                                 <h5>Bizim Ünvan</h5>
                                 <p>Atatürk prospekti, Elektron Hökumətin Binası, 1ci mərtəbə</p>
 
-                            </div>
-                        </div>
-                        <div class="wow fadeInDown" data-wow-delay="0.1s">
-                            <div class="widget">
-                                <h5>Follow us</h5>
-                                <ul class="company-social">
-                                    <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
-                                    <li class="social-dribble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>

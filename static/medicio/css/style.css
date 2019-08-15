@@ -356,26 +356,6 @@ Navigation
 .navbar-custom.top-nav-collapse ul.nav li a {
 	-webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
-	background: transparent;
-}
-
-
-.navbar.navbar-custom.top-nav-collapse {
-	background: transparent;
-}
-
-
-.navbar.navbar-custom.top-nav-collapse {
-	background: transparent;
-}
-
-
-.navbar.navbar-custom.top-nav-collapse {
-	background: transparent;
-}
-
-
-.navbar.navbar-custom.top-nav-collapse {
     transition: all .2s ease-in-out;
 	color: #444;
 }
@@ -509,17 +489,49 @@ Navigation
 .con2 .circle4 { -webkit-animation-delay: -0.2s; animation-delay: -0.2s; }
 
 .con3 .circle4 { -webkit-animation-delay: -0.1s; animation-delay: -0.1s; }
-/*
+
 @-webkit-keyframes bouncedelay { 0%, 80%, 100% { -webkit-transform: scale(0); }
   40% { -webkit-transform: scale(1); } }
 
 @keyframes bouncedelay { 0%, 80%, 100% { transform: scale(0); -webkit-transform: scale(0); }
   40% { transform: scale(1); -webkit-transform: scale(1); } }
 
+@keyframes boxSpin{
+  0%{
+    transform: translate(-10px, 0px);
+  }
+  25%{
+    transform: translate(10px, 10px);
+  }
+  50%{
+    transform: translate(10px, -10px);
+  }
+  75%{
+    transform: translate(-10px, -10px);
+  }
+  100%{
+    transform: translate(-10px, 10px);
+  }
+}
 
-*/
 
-
+@keyframes shadowSpin{
+  0%{
+    box-shadow: 10px -10px #39CCCC, -10px 10px #FFDC00;
+  }
+  25%{
+    box-shadow: 10px 10px #39CCCC, -10px -10px #FFDC00;
+  }
+  50%{
+    box-shadow: -10px 10px #39CCCC, 10px -10px #FFDC00;
+  }
+  75%{
+    box-shadow: -10px -10px #39CCCC, 10px 10px #FFDC00;
+  }
+  100%{
+    box-shadow: 10px -10px #39CCCC, -10px 10px #FFDC00;
+  }
+}
 
 #load {
 	z-index: 9999;
@@ -532,14 +544,8 @@ Navigation
   margin: -5px auto 0 auto;
   left: 0;
   right: 0;
-  background: transparent;
-}
-
-
-.navbar.navbar-custom.top-nav-collapse {
   border-radius: 0px;
- /* border: 5px solid rgb(141, 141, 141);*/
- background-color: white;
+  border: 5px solid #FF4136;
   box-shadow: 10px 0px #39CCCC, 10px 0px #01FF70;
   animation: shadowSpin 1s ease-in-out infinite;
 }
@@ -1505,7 +1511,7 @@ a.scrollup i:hover {
     -webkit-animation-timing-function: linear;
     -moz-animation-timing-function: linear;
 }
-/*
+
 @-webkit-keyframes pulse {    
     0 {
         -webkit-transform: scale(1);
@@ -1538,7 +1544,7 @@ a.scrollup i:hover {
         -moz-transform: scale(1);
         transform: scale(1);
     }
-} */
+}
 
 
 
@@ -1578,7 +1584,7 @@ a.scrollup i:hover {
        -o-animation-duration: 0.3s;
           animation-duration: 0.3s;
 }
-/*
+
 @-webkit-keyframes blink {
   50% {
     opacity: 0;
@@ -1601,7 +1607,7 @@ a.scrollup i:hover {
 }
 
 
-*/
+
 /* --- button --- */
 .btn {
 	position: relative;
@@ -1632,7 +1638,7 @@ a.btn:focus{
   border-color: #c83539;
 }
 .btn-red:hover,
-.btn-red:focus,inline
+.btn-red:focus,
 .btn-red:active,
 .btn-red.active {
   color: #fff;
@@ -2052,4 +2058,8 @@ a.btn:focus{
 	.intro-content {
 		padding:250px 0 0;
 	}
+}
+
+#filters-container {
+	display: inline-block;
 }

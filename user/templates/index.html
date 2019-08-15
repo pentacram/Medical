@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% load static %}
 {% block content %}
 <div id="wrapper">
@@ -30,13 +30,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 			  <ul class="nav navbar-nav">
-				<li class="active"><a href="{% url 'home' %}">Ana Səhifə</a></li>
-				<li><a href="#service">Servis</a></li>
-				<li><a href="{% url 'freecategory' %}">Sərbəst Həkimlər</a></li>
+				<li class="active"><a href="#intro">Ana Səhifə</a></li>
+				<li><a href="#doctor">Sərbəst Həkimlər</a></li>
 				<li><a href="#facilities">Haqqımızda</a></li>
 				<li><a href="{% url 'clinic' %}">Klinikalar</a></li>
 				<li><a href="{% url 'register' %}">Qeydiyyat</a></li>
-				<li><a href="{% url 'login' %}">Login</a></li>
+				<li><a href="{% url 'logout' %}">Login</a></li>
 				
 			  </ul>
             </div>
@@ -53,7 +52,7 @@
 				<div class="row">
 					<div class="col-lg-6">
 					<div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
-					<h2 class="h-ultra">Medicio medical group</h2>
+					<h2 class="h-ultra">Med medical group</h2>
 					</div>
 					<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.1s">
 					<h4 class="h-light">Sağlamlığınızı bizə etibar edin!</h4>
@@ -66,9 +65,56 @@
 							<li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Sevimli həkiminizi seçin</strong><br />Sit zril sanctus scaevola ei, ea usu movet graeco</span></li>
 							<li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Yalnız mehriban mühitdən istifadə edin</strong><br />Wisi lobortis eos ex, per at movet delectus, qui no vocent deleniti</span></li>
 						</ul>
+
 						</div>
 						</div>
+
+
 					</div>
+					<!-- <div class="col-lg-6">
+						<div class="form-wrapper">
+						<div class="wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.2s">
+						
+							<div class="panel panel-skin">
+							<div class="panel-heading">
+									<h3 class="panel-title"><span class="fa fa-pencil-square-o"></span> Login<small> (Ödənişsizdir)</small></h3>
+									</div>
+									<div class="panel-body">
+									<form role="form" class="lead">
+										<div class="row">
+											<div class="col-xs-6 col-sm-6 col-md-6">
+												<div class="form-group">
+													<label>Username</label>
+													<input type="text" name="first_name" id="first_name" class="form-control input-md">
+												</div>
+											</div>
+										
+										</div>
+
+										<div class="row">
+											
+											<div class="col-xs-6 col-sm-6 col-md-6">
+												<div class="form-group">
+													<label>Password</label>
+													<input type="password" name="phone" id="phone" class="form-control input-md">
+												</div>
+											</div>
+										</div>
+										<div class="row">
+												<div class="col-xs-6 col-sm-6 col-md-6">
+														<div class="form-group">
+										<input type="submit" value="Submit" class="btn btn-skin btn-block btn-lg">
+										</div>
+									</div>
+								</div>
+									
+									</form>
+								</div>
+							</div>				
+						
+						</div>
+						</div>
+					</div>					 -->
 				</div>		
 			</div>
 		</div>		
@@ -133,8 +179,6 @@
 
 	</section>
 	<!-- /Section: boxes -->
-	
-	
 
 	<!-- Section: services -->
     <section id="service" class="home-section nopadding paddingtop-60">
@@ -239,6 +283,7 @@
 					<div class="wow fadeInDown" data-wow-delay="0.1s">
 					<div class="section-heading text-center">
 					<h2 class="h-bold">Həkimlər</h2>
+					<p>Ea melius ceteros oportere quo, pri habeo viderer facilisi ei</p>
 					</div>
 					</div>
 					<div class="divider-short"></div>
@@ -249,35 +294,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-				
-			{% for cat in freecat %}
-            <div id="filters-container" class="cbp-l-filters-alignLeft" style="display:inline-block;margin-right:130px;width: 40px; height: 60px; transform: translate3d(0px, 0px, 0px);">
-                <div data-filter=".cardiologist" class="cbp-filter-item"><a href="{% url 'freedoctor' cat.id  %}">{{cat.name}}</a></div>
-            </div>
+			{% for free in freecat %}
+            <a id="filters-container" class="cbp-l-filters-alignLeft doctor-type" data-type="{{ free.name }}">
+                <div data-filter="*"  class=" cbp-filter-item-active cbp-filter-item">{{ free.name }}</div>
+            </a>
 			{% endfor %}
-
-			{% for doc in freedoctor %}
             <div id="grid-container" class="cbp-l-grid-team">
                 <ul>
-                    <li class="cbp-item psychiatrist">
-                        <a href="{% url 'freereserve' doc.id %}" class="cbp-caption cbp-singlePage">
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="{{ doc.picture.url }}" alt="" width="100%">
-                            </div>
-                            <div class="cbp-caption-activeWrap">
-                                <div class="cbp-l-caption-alignCenter">
-                                    <div class="cbp-l-caption-body">
-                                        <div class="cbp-l-caption-text">Profili görüntülə</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{% url 'freereserve' doc.id %}" class="cbp-singlePage cbp-l-grid-team-name">{{ doc.name }} {{ doc.surname }}</a>
-                        <div class="cbp-l-grid-team-position">{{ doc.catname.name }}</div>
-                    </li>
+
                 </ul>
             </div>
-			{% endfor %}
 			</div>
 			</div>
 		</div>
@@ -404,7 +430,7 @@
 							<div class="person-text rel text-light">
 								<img src="{% static 'medicio/img/testimonials/6.jpg' %}" alt="" class="person img-circle" />
 								<a title="" href="#">Tofiq Cabbarov</a>
-								<span>Detroit, Michigan</span>
+								<span>Baku, Azerbaijan</span>
 							</div>
 						</div>
                     </div>
@@ -420,77 +446,21 @@
                 </a>
             </div>
         </div>
-    </div>	
-	<section id="partner" class="home-section paddingbot-60">	
-		<div class="container marginbot-50">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="wow lightSpeedIn" data-wow-delay="0.1s">
-					<div class="section-heading text-center">
-					<h2 class="h-bold">Tərəfdaşımız</h2>
-					<p>Bu gün xüsusi olaraq hazırlanmış sağlamlıq paketlərimizlə sağlamlığınıza cavab verin</p>
-					</div>
-					</div>
-					<div class="divider-short"></div>
-				</div>
-			</div>
-		</div>
-		
-           <div class="container">
-				<div class="row">
-					<div class="col-sm-6 col-md-3">
-						<div class="partner">
-						<a href="#"><img  src="{% static 'medicio/img/dummy/partner-1.jpg' %}" alt="" /></a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<div class="partner">
-						<a href="#"><img src="{% static 'medicio/img/dummy/partner-2.jpg' %}" alt="" /></a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<div class="partner">
-						<a href="#"><img src="{% static 'medicio/img/dummy/partner-3.jpg' %}" alt="" /></a>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-						<div class="partner">
-						<a href="#"><img src="{% static 'medicio/img/dummy/partner-4.jpg' %}" alt="" /></a>
-						</div>
-					</div>
-				</div>
-            </div>
-	</section>	
-
+    </div>
+</div>
+	</section>
+	<!-- /Section: testimonial -->
 	<footer>
 	
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-md-4">
-					<div class="wow fadeInDown" data-wow-delay="0.1s">
-					<div class="widget">
-						<h5>Medicio haqqında</h5>
-						<p>
-						Lorem ipsum dolor sit amet, ne nam purto nihil impetus, an facilisi accommodare sea
-						</p>
-					</div>
-					</div>
-					<div class="wow fadeInDown" data-wow-delay="0.1s">
-					<div class="widget">
-						<h5>Məlumat</h5>
-						<ul>
-							<li><a href="#">Ana Səhifə</a></li>
-							<li><a href="#">Laboratoriya</a></li>
-							<li><a href="#">Müalicə</a></li>
-							<li><a href="#">Şərtlər və qaydalar</a></li>
-						</ul>
-					</div>
-					</div>
+					
 				</div>
 				<div class="col-sm-6 col-md-4">
 					<div class="wow fadeInDown" data-wow-delay="0.1s">
 					<div class="widget">
-						<h5>Medicio Mərkəzi</h5>
+						<h5>Medial Mərkəzi</h5>
 						<p>
 						Nam leo lorem, tincidunt id risus ut, ornare tincidunt naqunc sit amet.
 						</p>
@@ -511,7 +481,7 @@
 								<span class="fa-stack fa-lg">
 									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-								</span> hello@medicio.com
+								</span> Medical@gmail.com
 							</li>
 
 						</ul>
@@ -526,18 +496,6 @@
 						
 					</div>
 					</div>
-					<div class="wow fadeInDown" data-wow-delay="0.1s">
-					<div class="widget">
-						<h5>Follow us</h5>
-						<ul class="company-social">
-								<li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-								<li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
-								<li class="social-dribble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-						</ul>
-					</div>
-					</div>
 				</div>
 			</div>	
 		</div>
@@ -547,20 +505,8 @@
 				<div class="col-sm-6 col-md-6 col-lg-6">
 					<div class="wow fadeInLeft" data-wow-delay="0.1s">
 					<div class="text-left">
-					<p>&copy;Müəllif hüquqları 2019 - Medicio. Bütün hüquqlar qorunur.</p>
+					<p>&copy;Müəllif hüquqları 2019 - {Tech} Academy. Bütün hüquqlar qorunur.</p>
 					</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-6 col-lg-6">
-					<div class="wow fadeInRight" data-wow-delay="0.1s">
-					<div class="text-right">
-						<p><a href="http://bootstraptaste.com/">Bootstrap Temalar</a>  BootstrapTaste tərəfindən</p>
-					</div>
-                    <!-- 
-                        All links in the footer should remain intact. 
-                        Licenseing information is available at: http://bootstraptaste.com/license/
-                        You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Medicio
-                    -->
 					</div>
 				</div>
 			</div>	

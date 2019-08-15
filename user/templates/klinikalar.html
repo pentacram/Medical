@@ -50,7 +50,7 @@
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
 						<i class="fa fa-bars"></i>
 					</button>
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" href="{% url 'home' %}">
 						<img src="{% static 'medicio/img/logo.png' %}" alt="" width="150" height="40" />
 					</a>
 				</div>
@@ -58,7 +58,7 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 				  <ul class="nav navbar-nav">
-					<li class="active"><a href="index.html">Ana Səhifə</a></li>
+					<li class="active"><a href="{% url 'home' %}">Ana Səhifə</a></li>
 					<li><a href="#clinics">/Klinikalar</a></li>
 					
 					
@@ -80,7 +80,7 @@
 							<div class="col-lg-3 col-md-4 col-sm-6 cs_clinic_panel cs_height_mobile">
 								<div class="card h-100">
 									<div class="cs_panel_image cs_clinic_image">									
-										<a href="../clinic/az/11/diaqnoz-tibb-merkezi.html">
+										<a href="{% url 'category' med.id %}">
 											<img src="{{ med.photo.url }}" width="100%" height="" class="doc_photo"  title="Diaqnoz Tibb Mərkəzi" alt="Klinikalar Diaqnoz Tibb Mərkəzi" />
 										</a>
 									</div>

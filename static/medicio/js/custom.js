@@ -221,3 +221,9 @@ $(window).load(function() {
 });
 
 	
+$('.doctor-type').click(function(){
+	console.log($(this).data('type'))
+	$.ajax({
+		url:'doctor-ajax'
+	})
+})
