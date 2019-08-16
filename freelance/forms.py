@@ -15,5 +15,4 @@ class FreeDoctorForm(forms.ModelForm):
 class FreeReserveForm(forms.ModelForm):
     class Meta:
         model = FreeReserve
-        fields = ['doctor', 'name', 'surname','comment',
-                  'age', 'date', 'timeslot', 'contact_number']
+        fields = ['name', 'surname','comment', 'date', 'timeslot', 'contact_number']

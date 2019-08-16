@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,7 +57,7 @@
                         data-target=".navbar-main-collapse">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{% url 'home' %}">
                         <img src="{% static 'medicio/img/logo.png' %}" alt="" width="150" height="40" />
                     </a>
                 </div>
@@ -64,7 +65,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{% url 'homepage' %}">Ana Səhifə</a></li>
+                        <li class="active"><a href="{% url 'home' %}">Ana Səhifə</a></li>
 
                     </ul>
                 </div>
@@ -72,53 +73,62 @@
             </div>
             <!-- /.container -->
         </nav>
-        
+
         <div class="container">
-        {% for doctor in freedoctor %}
+            {% for doctor in freedoctor %}
             <div class="row cs_no_pad">
                 <div class="col-md-8 ">
-
                     <div class="row">
-
                         <div class="col-md-12 cs_docpan_title">
                             <h1>Dr.</h1>
                         </div>
                         <div class="col-md-12 cs_docpan_desc">
-
-                            Doktor Manaf Abbasov kəskin və xroniki xasiyyətli pulmonoloji patologiyaların hər tərəfli
+                            {Doktor Manaf Abbasov kəskin və xroniki xasiyyətli pulmonoloji patologiyaların hər tərəfli
                             terapiyasi &uuml;zrə ixtisaslaşır. M&uuml;təxəssis pnevmaniya, bronxial astma, ağ ciyərlərin
-                            emfizeması, bronxit və s. kimi xəstəlikləri m&uuml;alicə edir.&nbsp;
+                            emfizeması, bronxit və s. kimi xəstəlikləri m&uuml;alicə edir.&nbsp;}
                         </div>
                         <!-- FOR MOBILE -->
                         <div class="col-md-12 d-block d-lg-none">
                             <div class="cs_doc_quick_profile">
                                 <h3>Həkim profili</h3>
-                                <table class="table">
-                                    <tr>
-                                        <td width="20%">Həkim:</td>
-                                        <td class="text-right">Dr. {{ doctor.name }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Telefon:</td>
-                                        <td class="text-right">{{ doctor.phone }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>E-mail:</td>
-                                        <td class="text-right">{{ doctor.email }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sahə:</td>
-                                        <td class="text-right">{{ doctor.catname.name }} </td>
-                                    </tr>
-                                </table>
+                                <div class="row">
+                                    <div class="col-md-4" style="display: inline-block;"><img
+                                            src="{{ doctor.picture.url }}">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <table class="table">
+                                            <tr>
+                                                <td width="20%">Həkim:</td>
+                                                <td class="text-right">Dr. {{ doctor.name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Telefon:</td>
+                                                <td class="text-right">{{ doctor.phone }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>E-mail:</td>
+                                                <td class="text-right">{{ doctor.email }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sahə:</td>
+                                                <td class="text-right">{{ doctor.catname.name }} </td>
+                                            </tr>
+                                        </table>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-10 text-center">
 
                                         <p>
                                             <button type="button" class="btn btn-danger btn-block cs_reception_button"
-                                                data-toggle="modal" data-target="#enroll" rel="">Qəbula
-                                                yazılmaq</button>
+                                                data-toggle="modal" data-target="#enroll" rel="">Qəbula Yazılmaq</button>
                                         </p>
                                     </div>
                                     <div class="col-md-1"></div>
@@ -126,70 +136,20 @@
 
                             </div>
                         </div>
-                        <div class="col-md-12 cs_about_panel">
-                            <div class="row">
-                                <div class="col-6">
-                                    Həkim haqqında </div>
-                                <div class="col-6 text-right">
-                                    <i class="fa fa-plus" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-md-12 cs_about_panel_text">
                             <p>
-                                <h2><strong>İş təcr&uuml;bəsi:</strong></h2>
-
+                                <h2><strong>Haqqında</strong></h2>
                                 <ul>
-                                    <li>1990&mdash;1991 illər &mdash; XI İnfeksion xəstəliklər ş&ouml;bəsi I saylı
-                                        ŞKX&mdash; Ki&ccedil;ik tibb iş&ccedil;isi;</li>
-                                    <li>1994&mdash;1996 illər &mdash; Mərkəzi Hərbi Hospital, III cərrahiyyə
-                                        ş&ouml;bəsi&mdash; Tibb qardaşı;</li>
-                                    <li>1998 il &mdash; Elmi Tədqiqat Ftiziatriya və Pulmonologiya İnstitutu, II
-                                        Ftiziatriya ş&ouml;bəsi &mdash; Həkim ordinator;</li>
-                                    <li>1998&mdash;2000 illər &mdash; M&uuml;dafiə Nazirliyi Əlahiddə Ftiziatriya
-                                        Hospitalı, II Ftiziatriya ş&ouml;bəsi &mdash; Həkim-Ordinator;</li>
-                                    <li>2000&mdash;2012 illər &mdash; Mərkəzi Klinik Xəstəxana &mdash; Həkim-Pulmonolog;
-                                    </li>
-                                    <li>2012 il &mdash; Modern Hospital&mdash; Pulmonolog-Allerqoloq;</li>
-                                    <li>2017 ildən &mdash; hazırki d&ouml;vrə gədər &mdash; Mərkəzi Klinika &mdash;
-                                        Pulmonoloq-Allerqoloq.</li>
+                                    <li>{{ doctor.info }}</li>
                                 </ul>
                             </p>
                             <hr />
-
-                            <div class="col-md-12">
-                                <h2>Təhsil</h2>
-                                <ul>
-                                    <li>Azərbaycan D&ouml;vlət Tibb Universiteti (1991&mdash;1997 illər);</li>
-                                    <li>Elmi Tədqiqat Ftiziatriya və Pulmonologiya İnstitutu, internatura
-                                        (1997&mdash;1998 illər).</li>
-                                </ul>
-                            </div>
                             <hr />
-                            <div class="col-md-12">
-                                <h2>Kurslar</h2>
-                                <ul>
-                                    <li>Ankara Atat&uuml;rk G&ouml;g&uuml;s Hastalıkları və G&ouml;g&uuml;s Cerrahisi
-                                        Egitim-Araştırma Hastanesi, Pulmonoloq (T&uuml;rkiyə, 2000 il);</li>
-                                    <li>Ankara Atat&uuml;rk G&ouml;g&uuml;s Hastalıkları və G&ouml;g&uuml;s Cerrahisi
-                                        Egitim-Araştırma Hastanesi, Astma və Allergologiya (T&uuml;rkiyə, 2002 il).</li>
-                                </ul>
-                            </div>
-                            <hr />
-                            <div class="col-md-12">
-                                <h2>İcra edilən prosedurlar</h2>
-                                <ul>
-                                    <li>diaqnostika, m&uuml;alicə və profilaktika;</li>
-                                </ul>
-                            </div>
-
                         </div>
-
-
                     </div>
 
                 </div>
-            {% endfor %}
+                {% endfor %}
             </div>
         </div>
         <div class="modal fade" id="enroll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -204,27 +164,39 @@
                     <div class="modal-body">
 
                         <form method="POST">
+                            {% csrf_token %}
+                
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <input type="text" name="reception_client_fullaname" class="form-control"
-                                        placeholder="Adınız və soyadınız" required>
+                                    <input type="text" name="{{ form.name.name }}" class="form-control"
+                                        placeholder="Adınız" required>
+                                </div>
+
+                                <div class="col-md-12 form-group">
+                                    <input type="text" name="{{ form.surname.name }}" class="form-control"
+                                        placeholder="soyadiniz" required>
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    <input type="text" name="reception_client_phone" class="form-control mobile"
+                                    <input type="text" name="{{form.contact_number.name}}" class="form-control mobile"
                                         placeholder="Əlaqə nömrəsi" required>
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    <textarea name="reception_client_comment" class="form-control" required
+                                    <input type="text" name="{{form.email.name}}" class="form-control mobile"
+                                        placeholder="email adress" required>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <textarea name="{{ form.comment.name }}" class="form-control" required
                                         placeholder="Şərh"></textarea>
                                 </div>
+                            
                                 <div class="col-md-12 form-group">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label class="col-xs-3 control-label">Qəbul tarixi</label>
                                             <div class="col-xs-5 date">
                                                 <div class="input-group input-append date">
-                                                    <input type="text" class="form-control" autocomplete="off"
-                                                        id="datePicker" name="reception_client_date_receipt" required />
+                                                    <input type="date" class="form-control" autocomplete="off"
+                                                        id="datePicker" name="{{ form.date.name }}" required />
                                                 </div>
                                             </div>
 
@@ -239,80 +211,10 @@
                                                     <div class="appointment_time_li">
 
 
-                                                        <select class="form-control"
-                                                            name="reception_client_time_receipt">
-
-                                                            <optgroup label="08:00 - 08:45">
-                                                                <option value="08:00">08:00</option>
-                                                                <option value="08:15">08:15</option>
-                                                                <option value="08:30">08:30</option>
-                                                                <option value="08:45">08:45</option>
-                                                            </optgroup>
-
-                                                            <optgroup label="09:00 - 09:45">
-                                                                <option value="09:00">09:00</option>
-                                                                <option value="09:15">09:15</option>
-                                                                <option value="09:30">09:30</option>
-                                                                <option value="09:45">09:45</option>
-                                                            </optgroup>
-
-                                                            <optgroup label="10:00 - 10:45">
-                                                                <option value="10:00">10:00</option>
-                                                                <option value="10:15">10:15</option>
-                                                                <option value="10:30">10:30</option>
-                                                                <option value="10:45">10:45</option>
-                                                            </optgroup>
-
-                                                            <optgroup label="11:00 - 11:45">
-                                                                <option value="11:00">11:00</option>
-                                                                <option value="11:15">11:15</option>
-                                                                <option value="11:30">11:30</option>
-                                                                <option value="11:45">11:45</option>
-                                                            </optgroup>
-
-                                                            <optgroup label="12:00 - 12:45">
-                                                                <option value="12:00">12:00</option>
-                                                                <option value="12:15">12:15</option>
-                                                                <option value="12:30">12:30</option>
-                                                                <option value="12:45">12:45</option>
-                                                            </optgroup>
-
-                                                            <optgroup label="13:00 - 13:45">
-                                                                <option value="13:00">13:00</option>
-                                                                <option value="13:15">13:15</option>
-                                                                <option value="13:30">13:30</option>
-                                                                <option value="13:45">13:45</option>
-                                                            </optgroup>
-
-                                                            <optgroup label="14:00 - 14:45">
-                                                                <option value="14:00">14:00</option>
-                                                                <option value="14:15">14:15</option>
-                                                                <option value="14:30">14:30</option>
-                                                                <option value="14:45">14:45</option>
-                                                            </optgroup>
-
-                                                            <optgroup label="15:00 - 15:45">
-                                                                <option value="15:00">15:00</option>
-                                                                <option value="15:15">15:15</option>
-                                                                <option value="15:30">15:30</option>
-                                                                <option value="15:45">15:45</option>
-                                                            </optgroup>
-
-                                                            <optgroup label="16:00 - 16:45">
-                                                                <option value="16:00">16:00</option>
-                                                                <option value="16:15">16:15</option>
-                                                                <option value="16:30">16:30</option>
-                                                                <option value="16:45">16:45</option>
-                                                            </optgroup>
-
-                                                            <optgroup label="17:00 - 17:45">
-                                                                <option value="17:00">17:00</option>
-                                                                <option value="17:15">17:15</option>
-                                                                <option value="17:30">17:30</option>
-                                                                <option value="17:45">17:45</option>
-                                                            </optgroup>
-
-                                                        </select>
+                                                        {% comment %} <select class="form-control"
+                                                            name="{{ form.timeslot.name }}">
+                                                        </select> {% endcomment %}
+                                                        {{ form.timeslot }}
 
                                                     </div>
 
@@ -324,13 +226,15 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    <input type="hidden" name="reception_docwork_clinic_id"
-                                        id="reception_docwork_clinic_id">
+                                    <input type="hidden" name="doctor_id"
+                                        id="reception_docwork_clinic_id" value='{{freedoctor.pk}}'>
                                     <button type="submit" name="reception_button" class="btn btn-danger">Qəbula
                                         yazıl</button>
                                 </div>
                             </div>
                         </form>
+
+
                     </div>
                 </div>
             </div>

@@ -39,9 +39,9 @@ class FreeReserve( models.Model ):
     doctor = models.ForeignKey(FreeDoctor, on_delete = models.CASCADE )
     name = models.CharField( max_length = 50 )
     surname = models.CharField( max_length = 50 )
-    age = models.IntegerField( default = None )
+    age = models.IntegerField(null=True, blank=True)
     date = models.DateField()
-    timeslot = models.IntegerField( choices = TIMESLOT_LIST )
+    timeslot = models.IntegerField(choices = TIMESLOT_LIST )
     contact_number = models.CharField( max_length = 15 )
     comment = models.CharField( max_length = 1000 )
 

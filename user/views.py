@@ -92,32 +92,46 @@ def freecategory(request):
     context['freecat'] = Free_category.objects.all()
     return render(request, 'index.html', context)
 
+@login_required(login_url=reverse_lazy('login'))
 def freedoctor(request, id):
     context = {}
     context['freecat'] = Free_category.objects.all()
     context['freedoctor'] = FreeDoctor.objects.filter(catname__pk=id)
-    return render(request, 'freedoc.html', context)
-
-
-#@login_required(login_url=reverse_lazy('login'))
-def freereserve(request, id):
-    context = {}
     form = FreeReserveForm(request.POST or None)
-    date = request.POST.get('data')
+    date = request.POST.get('date')
+    doctor_id = request.POST.get('doctor_id')
     timeslot = request.POST.get('timeslot')
     if FreeReserve.objects.filter(date=date, timeslot=timeslot):
-        return redirect('freereserve')
+        return redirect('doctor')
     elif form.is_valid():
-        form.save()
-        return redirect('homepage')
-    context['freedoctor'] = FreeReserve.objects.filter(doctor__pk=id)
+        reservation = form.save(commit=False)
+        current_doctor = FreeDoctor.objects.filter(pk=id).last()
+        reservation.doctor = current_doctor
+        form.save(commit=True)
+        return redirect('home')
+    context['freedoctors'] = FreeReserve.objects.filter(doctor__pk=id)
     context['form'] = form
     return render(request, 'freedoc.html', context)
 
 
+#@login_required(login_url=reverse_lazy('login'))
+#def freereserve(request, id):
+#    context = {}
+#    form = FreeReserveForm(request.POST or None)
+#    date = request.POST.get('data')
+#    timeslot = request.POST.get('timeslot')
+#    if FreeReserve.objects.filter(date=date, timeslot=timeslot):
+#        return redirect('freereserve')
+#    elif form.is_valid():
+#        form.save()
+#        return redirect('homepage')
+#    context['freedoctor'] = FreeReserve.objects.filter(doctor__pk=id)
+#    context['form'] = form
+#    return render(request, 'freedoc.html', context)
+
+
 class FilterDoctorsAjaxView(View):
     ajax_template = 'ajax.html'
-
     def get(self,request,*args,**kwargs):
         if request.is_ajax():
             doctor_type = request.GET.get('doctor_type',False)
