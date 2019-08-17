@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from phone_field import PhoneField
 
 class Clinic(models.Model):
-    username = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
+    username = models.ForeignKey(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField(max_length = 100)
     email = models.EmailField(unique=True)
     phone = PhoneField(help_text='Contact phone number', unique=True)
@@ -42,15 +42,15 @@ class Doctor(models.Model):
 class Reserve( models.Model ):
 
     TIMESLOT_LIST = (
-        (0, '09:00 – 10:00'),
-        (1, '10:00 – 11:00'),
-        (2, '11:00 – 12:00'),
-        (3, '12:00 – 13:00'),
-        (4, '13:00 – 14:00'),
-        (5, '14:00 – 15:00'),
-        (6, '15:00 – 16:00'),
-        (7, '16:00 – 17:00'),
-        (8, '17:00 – 18:00'),
+        ('09:00 – 10:00'),
+        ('10:00 – 11:00'),
+        ('11:00 – 12:00'),
+        ('12:00 – 13:00'),
+        ('13:00 – 14:00'),
+        ('14:00 – 15:00'),
+        ('15:00 – 16:00'),
+        ('16:00 – 17:00'),
+        ('17:00 – 18:00'),
     )
 
     doctor = models.ForeignKey(Doctor, on_delete = models.CASCADE )

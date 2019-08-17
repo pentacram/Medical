@@ -47,8 +47,7 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-8 ftco-animate text-center">
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Departments</span></p>
-            <h1 class="mb-3 bread">Departments</h1>
+            <h1 class="mb-3 bread">Categories</h1>
           </div>
         </div>
       </div>
@@ -61,13 +60,12 @@
     		<div class="row d-flex">
     			<div class="col-lg-12 d-flex ftco-animate">
     				<div class="dept d-md-flex" >
-    					<a href="department-single.html" class="img" style="background-image: url({% static 'remedic/remedic/images/dept-1.jpg' %});"></a>
+    					<a href="{% url 'doctor' cat.id %}" class="img" style="background-image: url({% static 'remedic/remedic/images/dept-1.jpg' %});"></a>
     					<div class="text p-4">
-    						<h3><a href="department-single.html">{{ cat.name }}</a></h3>
+    						<h3><a href="{% url 'doctor' cat.id %}">{{ cat.name }}</a></h3>
     						<ul>
     							<li><span class="ion-ios-checkmark"></span>Emergency</li>
     							<li><span class="ion-ios-checkmark"></span>Laboratory</li>
-    							<li><span class="ion-ios-checkmark"></span>Dental</li>
     						</ul>
     					</div>
     				</div>

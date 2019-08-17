@@ -10,7 +10,7 @@ class Free_category(models.Model):
 
 class FreeDoctor(models.Model):
     username = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
-    catname = models.OneToOneField(Free_category, on_delete=models.CASCADE, unique=True)
+    catname = models.ForeignKey(Free_category, on_delete=models.CASCADE, unique=True)
     name = models.CharField(max_length=50)
     surname = models.CharField(max_length = 50)
     email = models.EmailField(unique=True)
@@ -25,15 +25,15 @@ class FreeDoctor(models.Model):
 class FreeReserve( models.Model ):
 
     TIMESLOT_LIST = (
-        (0, '09:00 – 10:00'),
-        (1, '10:00 – 11:00'),
-        (2, '11:00 – 12:00'),
-        (3, '12:00 – 13:00'),
-        (4, '13:00 – 14:00'),
-        (5, '14:00 – 15:00'),
-        (6, '15:00 – 16:00'),
-        (7, '16:00 – 17:00'),
-        (8, '17:00 – 18:00'),
+        ('09:00 – 10:00'),
+        ('10:00 – 11:00'),
+        ('11:00 – 12:00'),
+        ('12:00 – 13:00'),
+        ('13:00 – 14:00'),
+        ('14:00 – 15:00'),
+        ('15:00 – 16:00'),
+        ('16:00 – 17:00'),
+        ('17:00 – 18:00'),
     )
 
     doctor = models.ForeignKey(FreeDoctor, on_delete = models.CASCADE )

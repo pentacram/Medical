@@ -67,7 +67,7 @@ def categoryview(request, id):
 def doctorview(request, id):
     context = {}
     context['doctor'] = Doctor.objects.filter(category_id__pk=id)
-    return render(request, 'doctorview.html', context)
+    return render(request, 'doctor.html', context)
 
 @login_required(login_url=reverse_lazy('login'))
 def createreserve(request, id):
