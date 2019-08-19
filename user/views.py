@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.http import Http404
-from .models import Register
+from .models import Qeydiyyat
 from .forms import RegisterCreateForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
@@ -75,12 +76,18 @@ def createreserve(request, id):
     form = ReserveForm(request.POST or None)
     date = request.POST.get('date')
     timeslot = request.POST.get('timeslot')
+    doctor_id = request.POST.get('doctor_id')
     if Reserve.objects.filter(date=date, timeslot=timeslot):
-        return redirect('createreserve')
+        messages.error(request, "Bu vaxt doludu Zəhmət olmasa başqa vaxt seçin!!!")
+        return redirect(reverse_lazy('reserve',kwargs={'id':id}))
     elif form.is_valid():
-        form.save()
-        return redirect('homepage')
+        reservation = form.save(commit=False)
+        current_doctor = Doctor.objects.filter(pk=id).last()
+        reservation.doctor = current_doctor
+        form.save(commit=True)
+        return redirect('home')
     context['form'] = form
+    context['doctors'] = Doctor.objects.filter(id=id)
     return render(request, 'reserve.html', context)
 
 def logout_view(request):
@@ -92,17 +99,18 @@ def freecategory(request):
     context['freecat'] = Free_category.objects.all()
     return render(request, 'index.html', context)
 
-@login_required(login_url=reverse_lazy('login'))
+#@login_required(login_url=reverse_lazy('login'))
 def freedoctor(request, id):
     context = {}
     context['freecat'] = Free_category.objects.all()
-    context['freedoctor'] = FreeDoctor.objects.filter(catname__pk=id)
+    context['freedoctor'] = FreeDoctor.objects.filter(id=id)
     form = FreeReserveForm(request.POST or None)
     date = request.POST.get('date')
     doctor_id = request.POST.get('doctor_id')
     timeslot = request.POST.get('timeslot')
     if FreeReserve.objects.filter(date=date, timeslot=timeslot):
-        return redirect('doctor')
+        messages.error(request, "Bu vaxt doludu Zəhmət olmasa başqa vaxt seçin!!!")
+        return redirect(reverse_lazy('freedoctor',kwargs={'id':id}))
     elif form.is_valid():
         reservation = form.save(commit=False)
         current_doctor = FreeDoctor.objects.filter(pk=id).last()

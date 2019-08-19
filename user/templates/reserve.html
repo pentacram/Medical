@@ -73,8 +73,9 @@
             </div>
             <!-- /.container -->
         </nav>
+
         <div class="container">
-            {% for doctor in freedoctor %}
+            {% for doctor in doctors %}
             <div class="row cs_no_pad">
                 <div class="col-md-8 ">
                     <div class="row">
@@ -110,7 +111,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Sahə:</td>
-                                                <td class="text-right">{{ doctor.catname.name }} </td>
+                                                <td class="text-right">{{ doctor.category_id.name }} </td>
                                             </tr>
                                         </table>
                                         {% if messages %}
@@ -148,7 +149,7 @@
                             <p>
                                 <h2><strong>Haqqında</strong></h2>
                                 <ul>
-                                    <li>{{ doctor.info }}</li>
+                                    <li>{{ doctor.carrier }}</li>
                                 </ul>
                             </p>
                             <hr />
@@ -184,6 +185,10 @@
                                 <div class="col-md-12 form-group">
                                     <input type="text" name="{{ form.surname.name }}" class="form-control"
                                         placeholder="soyadiniz" required>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <input type="number" name="{{ form.age.name }}" class="form-control"
+                                        placeholder="Yaşınız" required>
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <input type="text" name="{{form.contact_number.name}}" class="form-control mobile"

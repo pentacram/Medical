@@ -74,14 +74,15 @@
 					<div class="col-md-12">
 						<div class="col-md-12 cs_title_row">
 							<h1>KLİNİKALAR</h1>
-						</div>
-						{% for med in medicals %}
+						</div>						
 						<div class="row">
+							<div class="col-lg-12">
+							{% for med in medicals %}
 							<div class="col-lg-3 col-md-4 col-sm-6 cs_clinic_panel cs_height_mobile">
 								<div class="card h-100">
-									<div class="cs_panel_image cs_clinic_image">									
-										<a href="{% url 'clinic' med.id %}">
-											<img src="{{ med.photo.url }}" width="100%" height="" class="doc_photo"  title="Diaqnoz Tibb Mərkəzi" alt="Klinikalar Diaqnoz Tibb Mərkəzi" />
+									<div  class="cs_panel_image cs_clinic_image">									
+										<a  href="{% url 'clinic' med.id %}">
+											<img src="{{ med.photo.url }}" width="200px" height="200px" class="doc_photo"  title="Diaqnoz Tibb Mərkəzi" alt="Klinikalar Diaqnoz Tibb Mərkəzi" />
 										</a>
 									</div>
 									<div class="cs_rowpan_title cs_clinic_title">
@@ -89,8 +90,10 @@
 									</div>
 								</div>
 							</div>
+							{% endfor %}	
+							</div>
 						</div>
-						{% endfor %}	
+						
 					</div>	
 		        </div>
 			</div>

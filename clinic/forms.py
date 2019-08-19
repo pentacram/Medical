@@ -24,6 +24,6 @@ class DoctorForm(forms.ModelForm):
 class ReserveForm(forms.ModelForm):
     class Meta:
         model = Reserve
-        fields = ['doctor', 'name', 'surname','comment',
+        fields = ['name', 'surname','comment',
                   'age', 'date', 'timeslot', 'contact_number']
 

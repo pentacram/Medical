@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'medical_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'medicalsdb',
+        'NAME': 'medical',
         'USER': 'penta',
         'PASSWORD': '74123698520a',
         'HOST': '127.0.0.1',   

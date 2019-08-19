@@ -55,12 +55,12 @@
 
 	
     <section id="section_one" class="ftco-section">
-	{% for cat in category %}
-    	<div id="section_two" class="container">
+    	<div id="section_two" class="container" style="float:left;margin-left: 50px;">
     		<div class="row d-flex">
-    			<div class="col-lg-12 d-flex ftco-animate">
+        {% for cat in category %}
+    			<div class="col-lg-6 d-flex ftco-animate ">
     				<div class="dept d-md-flex" >
-    					<a href="{% url 'doctor' cat.id %}" class="img" style="background-image: url({% static 'remedic/remedic/images/dept-1.jpg' %});"></a>
+    					<a href="{% url 'doctor' cat.id %}" class="img" style="background-image: url({% static 'remedic/remedic/images/dept-1.jpg' %}); padding-rigth:20px;"></a>
     					<div class="text p-4">
     						<h3><a href="{% url 'doctor' cat.id %}">{{ cat.name }}</a></h3>
     						<ul>
@@ -70,13 +70,13 @@
     					</div>
     				</div>
     			</div>
-				
+        {% endfor %}
 			</div>
 		</div>
 		<br/>
 <br/>
 	<br/>
-		{% endfor %}
+		
     </section>
 	<br/>
 	<br/>

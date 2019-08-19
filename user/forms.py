@@ -1,10 +1,10 @@
 from django.forms import ModelForm
-from .models import Register
+from .models import Qeydiyyat
 from django.contrib.auth.forms import UserCreationForm
 
 
 class RegisterCreateForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
-        model = Register
-        fields = ('ad', 'soyad', 'yaş', 'Email', 'əlaqə_nömrəsi') + \
+        model = Qeydiyyat
+        fields = ('yash', 'elaqe_nomresi') + \
             UserCreationForm.Meta.fields
