@@ -6,9 +6,9 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
 
-def login_view(request):
-    if request.User.is_authenticated:
-        return redirect('homepage')
+def logins_view(request):
+    if request.user.is_authenticated:
+        return redirect('clinic:homepage')
 
     if request.method == 'POST':
         username = request.POST.get('username', '')
@@ -16,19 +16,19 @@ def login_view(request):
 
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request, User)
-            return redirect('homepage')
+            login(request, user)
+            return redirect('clinic:homeclinic')
 
     return render(request, 'login.html')
 
-@login_required(login_url=reverse_lazy('login'))
+@login_required(login_url=reverse_lazy('clinic:logins'))
 def homepage(request):
     context ={}
-    context['clinic'] = Clinic.objects.filter(clinic_name__pk = request.user.pk)
+    context['clinic'] = request.user.clinic
     print(context)
-    return render(request, 'index.html', context)
+    return render(request, 'clinicindex.html', context)
 
-@login_required(login_url=reverse_lazy('login'))
+@login_required(login_url=reverse_lazy('clinic:logins'))
 def updateClinic(request):
     context = {}
     clinic = Clinic.objects.all()
@@ -36,16 +36,16 @@ def updateClinic(request):
     context['clinic'] = clinic
     if form.is_valid():
         form.save()
-        return redirect('homepage')
+        return redirect('clinic:homepage')
     return render(request, 'clinic-form', context)
 
-@login_required(login_url=reverse_lazy('login'))
+@login_required(login_url=reverse_lazy('clinic:logins'))
 def category(request, id):
     context = {}
     context['category'] = Category.objects.filter(clinic_id__pk=id)
     return render(request, 'category.html', context)
 
-@login_required(login_url=reverse_lazy('login'))
+@login_required(login_url=reverse_lazy('clinic:logins'))
 def categoryEdit(request, id):
     context = {}
     categorys = Clinic.objects.get(id = id)
@@ -53,25 +53,25 @@ def categoryEdit(request, id):
     context['categoryform'] = categorys
     if form.is_valid():
         form.save()
-        return redirect('category')
+        return redirect('clinic:category')
     return render(request, 'category-form.html', context)
 
-@login_required(login_url=reverse_lazy('login'))
+@login_required(login_url=reverse_lazy('clinic:logins'))
 def categoryDelete(request, id):
     category = Category.objects.get(id=id)
 
     if request.method == 'GET':
         category.delete()
-        return render('category')
+        return render('clinic:category')
 
-@login_required(login_url=reverse_lazy('login'))
+@login_required(login_url=reverse_lazy('clinic:logins'))
 def doctor_view(request, id):
     context = {}
     context['doctor'] = Category.objects.filter(id=id)
     return render(request, 'doctors.html', context)
 
 
-@login_required(login_url=reverse_lazy('login'))
+@login_required(login_url=reverse_lazy('clinic:logins'))
 def doctorAllView():
     context = {}
     context['doctors'] = Doctor.objects.all()
@@ -80,10 +80,10 @@ def doctorAllView():
 
 
 
-@login_required(login_url=reverse_lazy('login'))
+@login_required(login_url=reverse_lazy('clinic:logins'))
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('clinic:login')
 
 
 

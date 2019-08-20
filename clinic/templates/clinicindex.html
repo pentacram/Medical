@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block content %} {% endblock %}
+{% load static %}
+  <head>
+    <title>{{ clinic.name }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'user/dist/css/adminx.css' %}" media="screen" />
+  </head>
+  <body>
+      <header>
+          <div class="adminx-container">
+            <nav class="navbar navbar-expand justify-content-between fixed-top">
+              <a class="navbar-brand mb-0 h1 d-none d-md-block" href="{% url 'clinic:homeclinic' %}">
+                <img src="{% static 'user/demo/img/logo.png' %}" class="navbar-brand-image d-inline-block align-top mr-2" alt="">
+                {{ clinic.name }}
+              </a>
+            
+              <div class="d-flex flex-1 d-block d-md-none">
+                <a href="#" class="sidebar-toggle ml-3">
+                  <i data-feather="menu"></i>
+                </a>
+              </div>
+            </nav>
+            <!-- expand-hover push -->
+            
+            <!-- Sidebar -->
+            <div class="adminx-sidebar expand-hover push body">
+              <ul class="sidebar-nav">
+                <li class="sidebar-nav-item">
+                  <a href="{% url 'clinic:homeclinic' %}" class="sidebar-nav-link active">
+                    <span class="sidebar-nav-icon">
+                      <i data-feather="home"></i>
+                    </span>
+                    <span class="sidebar-nav-name">
+                      Ana Səhifə
+                    </span>
+                    <span class="sidebar-nav-end">
+      
+                    </span>
+                  </a>
+                </li>
+
+                <li class="sidebar-nav-item">
+                  <a href="{% url 'clinic:logout' %}" class="sidebar-nav-link active">
+                    <span class="sidebar-nav-icon">
+                      <i data-feather="home"></i>
+                    </span>
+                    <span class="sidebar-nav-name">
+                      logout
+                    </span>
+                    <span class="sidebar-nav-end">
+      
+                    </span>
+                  </a>
+                </li>
+      
+                <li class="sidebar-nav-item">
+                  <a href="#" class="sidebar-nav-link active">
+                    <span class="sidebar-nav-icon">
+                      <i data-feather="pie-chart"></i>
+                    </span>
+                    <span class="sidebar-nav-name">
+                      Automaks
+                    </span>
+                    <span class="sidebar-nav-end">
+      
+                    </span>
+                  </a>
+                </li>
+      
+                <li class="sidebar-nav-item">
+                  <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#navTables" aria-expanded="false" aria-controls="navTables">
+                    <span class="sidebar-nav-icon">
+                      <i data-feather="align-justify"></i>
+                    </span>
+                    <span class="sidebar-nav-name">
+                      Project
+                    </span>
+                    <span class="sidebar-nav-end">
+                      <i data-feather="chevron-right" class="nav-collapse-icon"></i>
+                    </span>
+                  </a>
+      
+                  <ul class="sidebar-sub-nav collapse" id="navTables">
+                    <li class="sidebar-nav-item">
+                      <a href="#" class="sidebar-nav-link">
+                        <span class="sidebar-nav-abbr">
+                          PR
+                        </span>
+                        <span class="sidebar-nav-name">
+                          Project
+                        </span>
+                      </a>
+                    </li>
+      
+                    <li class="sidebar-nav-item">
+                      <a href="./layouts/tables_data.html" class="sidebar-nav-link">
+                        <span class="sidebar-nav-abbr">
+                          WR
+                        </span>
+                        <span class="sidebar-nav-name">
+                          Workers
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>    <!-- If you prefer jQuery these are the required scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'user/dist/js/vendor.js' %}"></script>
+    <script src="{% static 'user/dist/js/adminx.js' %}"></script>
+
+    <!-- If you prefer vanilla JS these are the only required scripts -->
+    <!-- script src="./dist/js/vendor.js"></script>
+    <script src="./dist/js/adminx.vanilla.js"></script-->
+  </body>
+</html>

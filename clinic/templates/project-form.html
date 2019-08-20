@@ -1,0 +1,88 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block content_wrapper %}
+    <style>
+         .select2-selection--multiple {
+             border-radius: 20px !important;
+             height: 3em !important;
+        }
+    </style>
+      <!-- Main Content -->
+    <div class="adminx-content">
+        <div class="adminx-main-content">
+            <form method="POST">
+                {% csrf_token %}
+                <h1>{{ form.errors }}</h1>
+                <div class="container">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <span class="name-input">Project</span> <br><input class="inputs-main" name="name" value="{{ object.name|default:'' }}" type="text" placeholder="Type your ...">
+                        </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <span class="name-input">Start time</span> <br><input class="inputs-main" name="starttime" value="{{ object.starttime|date:'Y-m-d'|default:'' }}" type="date" placeholder="Type your ...">
+                        </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <span class="name-input">Deadline</span> <br><input class="inputs-main" name="deadline" value="{{ object.deadline|date:'Y-m-d'|default:'' }}" type="date" placeholder="Type your ...">
+                        </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <span class="name-input mt-5">Workers</span>
+                            <br>
+                            <br>
+                            <select style="width: 90%;" class="js-example-basic-multiple inputs-main" name="workers_list" multiple="multiple">
+                                {% if object %}
+                                    {% for worker in object.workers_list.all %}
+                                        <option value="{{ worker.id }}" selected>{{ worker.workers_name }}</option>
+                                    {% endfor %}
+                                    {% for worker in workers %}
+                                        <option value="{{ worker.id }}">{{ worker.workers_name }}</option>
+                                    {% endfor %}
+                                {% else %}
+                                    {% for worker in workers %}
+                                        <option value="{{ worker.id }}">{{ worker.workers_name }}</option>
+                                    {% endfor %}
+                                {% endif %}
+                            </select>
+                        </div>
+                    <div class="col-md-1"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-11 text-center">
+                        <button type="submit" class="btn btn-success btn-inputs">Save</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extrascript %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            {#var table = $("#data-table").DataTable();#}
+            /* $('.form-control-search').keyup(function(){
+              table.search($(this).val()).draw() ;
+            }); */
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
+{% endblock %}

@@ -7,7 +7,7 @@ from .forms import *
 
 def login_view(request):
     if request.User.is_authenticated:
-        return redirect('homepage')
+        return redirect('freelance:homepage')
 
     if request.method == 'POST':
         username = request.POST.get('username', '')
@@ -16,17 +16,17 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, User)
-            return redirect('homepage')
+            return redirect('freelance:homepage')
 
     return render(request, 'login.html')
 
-@login_required(login_url=reverse_lazy('login'))
+@login_required(login_url=reverse_lazy('freelance:login'))
 def homepage(request):
     context = {}
     context['doctor'] = FreeDoctor.objects.filter(username__pk = request.user.pk)
     return render(request, 'index.html', context)
 
-@login_required
+@login_required(login_url=reverse_lazy('freelance:login'))
 def updateDoctor(request, id):
     context = {}
     profil = FreeDoctor.objects.filter(id = id)
@@ -34,10 +34,10 @@ def updateDoctor(request, id):
     context['doctorform'] = profil
     if form.is_valid():
         form.save()
-        return redirect('homepage')
+        return redirect('freelance:homepage')
     return render(request, 'doctor-form.html', context)
 
-@login_required
+@login_required(login_url=reverse_lazy('freelance:login'))
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('freelance:login')

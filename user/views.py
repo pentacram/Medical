@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import Http404
-from .models import Qeydiyyat
-from .forms import RegisterCreateForm
+#from .models import Qeydiyyat
+#from .forms import RegisterCreateForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
@@ -12,37 +12,37 @@ from freelance.models import *
 from freelance.forms import FreeReserveForm
 from django.views.generic import View
 
-def login_view(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    if request.method == "POST":
-        username = request.POST.get('username', '')
-        password = request.POST.get('password', '')
+#def login_view(request):
+#    if request.user.is_authenticated:
+#        return redirect('home')
+#    if request.method == "POST":
+#        username = request.POST.get('username', '')
+#        password = request.POST.get('password', '')
+#
+#        user = authenticate(request, username=username, password=password)
+#
+#        if user is not None:
+#            login(request, user)
+#            return redirect('home')
+#    return render(request, 'login.html')
 
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-    return render(request, 'login.html')
-
-def registration(request):
-    if request.method == "POST":
-        form = RegisterCreateForm(request.POST)
-        if form.is_valid():
-            form.save()
-            request.session['username'] = request.POST.get('username')
-            return redirect('login')
-        else:
-            return render(request, 'registration.html', context={
-                'registration_form': form
-            })
-    context = {
-        'registration_form': RegisterCreateForm()
-    }
-    return render(request, 'registration.html', context)
-
-
+#def registration(request):
+#    if request.method == "POST":
+#        form = RegisterCreateForm(request.POST)
+#        if form.is_valid():
+#            form.save()
+#            request.session['username'] = request.POST.get('username')
+#            return redirect('login')
+#        else:
+#            return render(request, 'registration.html', context={
+#                'registration_form': form
+#            })
+#    context = {
+#        'registration_form': RegisterCreateForm()
+#    }
+#    return render(request, 'registration.html', context)
+#
+#
 
 
 def medicalsview(request):
@@ -70,7 +70,7 @@ def doctorview(request, id):
     context['doctor'] = Doctor.objects.filter(category_id__pk=id)
     return render(request, 'doctor.html', context)
 
-@login_required(login_url=reverse_lazy('login'))
+#@login_required(login_url=reverse_lazy('login'))
 def createreserve(request, id):
     context = {}
     form = ReserveForm(request.POST or None)
@@ -90,9 +90,9 @@ def createreserve(request, id):
     context['doctors'] = Doctor.objects.filter(id=id)
     return render(request, 'reserve.html', context)
 
-def logout_view(request):
-    logout(request)
-    return redirect('login')
+#def logout_view(request):
+#    logout(request)
+#    return redirect('login')
 
 def freecategory(request):
     context = {}

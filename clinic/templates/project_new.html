@@ -1,0 +1,78 @@
+{% extends "home/index.html" %}
+{% load static %}
+{% block content_wrapper %}
+
+    <!-- Main Content -->
+    <div class="adminx-content">
+        <div class="adminx-main-content">
+            <div class="container-fluid">
+
+                <div class="pb-3">
+                    <h1 class="text-center">PROJECT</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card mb-grid">
+                            <div class="table-responsive-md">
+                                <table class="table table-actions table-striped table-hover mb-0" id="data-table" data-table>
+                                    <thead>
+                                    <div>
+                                        <a href="{% url 'create_projects' %}" type="button"  class="table-add">Add</a>
+                                    </div>
+                                    <tr>
+                                        <th scope="col">
+                                            <label class="custom-control custom-checkbox m-0 p-0">
+                                                <input type="checkbox"
+                                                       class="custom-control-input table-select-all">
+                                                <span class="custom-control-indicator"></span>
+                                            </label>
+                                        </th>
+                                        <th scope="col">Project</th>
+                                        <th scope="col">Start time</th>
+                                        <th scope="col">Dead line</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for part in project %}
+                                        <tr>
+                                            <th scope="row">
+                                                <label class="custom-control custom-checkbox m-0 p-0">
+                                                    <input type="checkbox"
+                                                           class="custom-control-input table-select-row">
+                                                    <span class="custom-control-indicator"></span>
+                                                </label>
+                                            </th>
+
+                                            <td><a href="{% url 'Workers' part.id %}">{{ part.name }}</a></td>
+                                            <td>{{ part.starttime }}</td>
+                                            <td>{{ part.deadline }}</td>
+                                            <td>
+                                                <a style="color:white;" href="{% url 'project-edit' part.id %}" class="btn btn-sm btn-primary">Edit</a>
+                                                <a style="color:white;" href="{% url 'project-delete' part.id %}" class="btn btn-sm btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // Main Content -->
+{% endblock %}
+
+{% block extrascript %}
+    <script>
+        $(document).ready(function () {
+            var table = $("#data-table").DataTable();
+            /* $('.form-control-search').keyup(function(){
+              table.search($(this).val()).draw() ;
+            }); */
+        });
+    </script>
+{% endblock %}
